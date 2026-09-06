@@ -19,6 +19,11 @@ public class ThingManager : MonoBehaviour
     private float _randomThingSpawnMax = 4;
     private float _randomThingSpawnTimeMin = 1;
     private float _randomThingSpawnTimeMax = 3;
+    private float _offscreenPositionY = 2f;
+    private float _randomPositionXMin = -0.25f;
+    private float _randomPositionXMax = 0.25f;
+    private float _randomPositionYMin = -0.25f;
+    private float _randomPositionYMax = 0.25f;
 
     public void Start()
     {
@@ -45,11 +50,10 @@ public class ThingManager : MonoBehaviour
     {
         Thing thing = InitThing(_poolPrefabs[Random.Range(0,_poolPrefabs.Count)]);
         _randomThings.Add(thing);
-        thing.transform.position = new Vector3(
-            Random.Range(-0.25f,0.25f),
-            Random.Range(-0.25f,0.25f),
-            0
-        );
+        float x = Random.Range(_randomPositionXMin,_randomPositionXMax);
+        float y = Random.Range(_randomPositionYMin,_randomPositionYMax);
+        thing.transform.position = new Vector3(x,_offscreenPositionY,0);
+        thing.TweenTo(new Vector3(x,y,0));
         thing.transform.rotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
         return thing;
     }
@@ -73,6 +77,7 @@ public class ThingManager : MonoBehaviour
         thing.OnGrabEnd.AddListener(GrabEnd);
         thing.OnUse.AddListener(Use);
         _spawnedThings.Add(thing);
+        BumpSortOrder(thing);
         return thing;
     }
 

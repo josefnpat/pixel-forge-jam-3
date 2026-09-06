@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -23,6 +24,10 @@ public class Thing : MonoBehaviour, IPointerDownHandler
     private UnityEvent _useThingEvent;
 
     private Thing _lastThing;
+    private Vector3 _tweenFrom;
+    private Vector3 _tweenTo;
+    private float _tweenDelta = 1;
+    private float _tweenTime = 1;
 
     public GameObject Prefab { get; internal set; }
     public BoxCollider2D BoxCollider2D { get { return _boxCollider2D; } }
@@ -38,6 +43,20 @@ public class Thing : MonoBehaviour, IPointerDownHandler
         {
             _draggable2D.OnGrabStart.AddListener(GrabStart);
             _draggable2D.OnGrabEnd.AddListener(GrabEnd);
+        }
+    }
+
+    public void Update()
+    {
+        if (_tweenDelta < _tweenTime)
+        {
+            _tweenDelta += Time.deltaTime;
+            if (_tweenDelta > _tweenTime)
+            {
+                _tweenDelta = _tweenTime;
+            }
+            Vector3 movement = _tweenTo - _tweenFrom;
+            transform.position = _tweenFrom + movement * ( _tweenDelta / _tweenTime);
         }
     }
 
@@ -126,4 +145,10 @@ public class Thing : MonoBehaviour, IPointerDownHandler
         _subtitleManager.Stop();
     }
 
+    public void TweenTo(Vector3 target)
+    {
+        _tweenFrom = transform.position;
+        _tweenTo = target;
+        _tweenDelta = 0f;
+    }
 }
