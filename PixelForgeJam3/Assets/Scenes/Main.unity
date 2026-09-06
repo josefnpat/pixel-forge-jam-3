@@ -546,6 +546,7 @@ MonoBehaviour:
   _poolPrefabs:
   - {fileID: 157950016704980927, guid: 509e2fdd763b14465a0d0f829be627b8, type: 3}
   - {fileID: 157950016704980927, guid: ad3140924783347bba94f56044dfeff0, type: 3}
+  - {fileID: 6608489157364562905, guid: d777d7e65fa1a4d79a1cdb3374a628a1, type: 3}
   _initPrefabs:
   - Prefab: {fileID: 157950016704980927, guid: 2496e84271ecf4c28a5bc32d854eea71, type: 3}
     Position: {x: -1, y: 0, z: 0}

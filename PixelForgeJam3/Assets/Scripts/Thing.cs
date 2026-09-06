@@ -13,6 +13,7 @@ public class Thing : MonoBehaviour, IPointerDownHandler
     public UnityEvent<Thing> OnGrabStart = new UnityEvent<Thing>();
     public UnityEvent<Thing> OnGrabEnd = new UnityEvent<Thing>();
     public UnityEvent<Thing> OnUse = new UnityEvent<Thing>();
+    public UnityEvent<int> OnSpriteRendererSortingOrder = new UnityEvent<int>();
 
     public UnityEvent<Thing> OnEventRemove = new UnityEvent<Thing>();
     public UnityEvent<Thing, GameObject> OnEventCreate = new UnityEvent<Thing, GameObject>();
@@ -78,6 +79,7 @@ public class Thing : MonoBehaviour, IPointerDownHandler
     public void SetSpriteRendererSortingOrder(int sortingOrder)
     {
         _draggable2D.SetSpriteRendererSortingOrder(sortingOrder);
+        OnSpriteRendererSortingOrder.Invoke(sortingOrder);
     }
 
     public int GetSpriteRendererSortingOrder()
