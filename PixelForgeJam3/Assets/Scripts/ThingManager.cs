@@ -50,6 +50,7 @@ public class ThingManager : MonoBehaviour
             Random.Range(-0.25f,0.25f),
             0
         );
+        thing.transform.rotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
         return thing;
     }
 
@@ -95,6 +96,7 @@ public class ThingManager : MonoBehaviour
     private void GrabStart(Thing thing)
     {
         Debug.Log($"GrabStart: {thing}");
+        thing.transform.rotation = Quaternion.Euler(0f,0f,0f);
         BumpSortOrder(thing);
     }
 
