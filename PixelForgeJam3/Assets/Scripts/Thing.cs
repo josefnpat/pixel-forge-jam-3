@@ -16,7 +16,10 @@ public class Thing : MonoBehaviour, IPointerDownHandler
     public UnityEvent<int> OnSpriteRendererSortingOrder = new UnityEvent<int>();
 
     public UnityEvent<Thing> OnEventRemove = new UnityEvent<Thing>();
-    public UnityEvent<Thing, GameObject> OnEventCreate = new UnityEvent<Thing, GameObject>();
+    public UnityEvent<GameObject> OnEventAddToPool = new UnityEvent<GameObject>();
+    public UnityEvent<Thing, GameObject> OnEventCreateThing = new UnityEvent<Thing, GameObject>();
+    public UnityEvent<Thing, InitThingsScriptableObject> OnEventCreateThings = new UnityEvent<Thing, InitThingsScriptableObject>();
+    public UnityEvent<InitThingsScriptableObject> OnEventInit = new UnityEvent<InitThingsScriptableObject>();
 
     [SerializeField]
     private List<CombineThingEvent> _combineThingEvents;
@@ -114,6 +117,11 @@ public class Thing : MonoBehaviour, IPointerDownHandler
         OnEventRemove.Invoke(_lastThing);
     }
 
+    public void EventAddToPool(GameObject prefab)
+    {
+        OnEventAddToPool.Invoke(prefab);
+    }
+
     public void SetLastCombinedEvent(Thing thing)
     {
         _lastThing = thing;
@@ -127,9 +135,19 @@ public class Thing : MonoBehaviour, IPointerDownHandler
         }
     }
 
-    public void EventCreate(GameObject prefab)
+    public void EventCreateThing(GameObject prefab)
     {
-        OnEventCreate.Invoke(this, prefab);
+        OnEventCreateThing.Invoke(this, prefab);
+    }
+
+    public void EventCreateThings(InitThingsScriptableObject initThingsScriptableObject)
+    {
+        OnEventCreateThings.Invoke(this, initThingsScriptableObject);
+    }
+
+    public void EventInit(InitThingsScriptableObject initThingsScriptableObject)
+    {
+        OnEventInit.Invoke(initThingsScriptableObject);
     }
 
     public void EventMusicPlay()

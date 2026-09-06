@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780b7384bc55f4d6f8750b74b9ef11c4, type: 3}
+  m_Name: Credits
+  m_EditorClassIdentifier: Assembly-CSharp::InitThingsScriptableObject
+  InitThings:
+  - Prefab: {fileID: 5071777290953640616, guid: d3920db6a37594cf8ad1d0377abec667, type: 3}
+    Position: {x: -0.5, y: 0.5, z: 0}
+  - Prefab: {fileID: 5071777290953640616, guid: 6dd74d035281645e6a71b436379052d1, type: 3}
+    Position: {x: 0.5, y: 0.5, z: 0}
+  - Prefab: {fileID: 2426678915443273351, guid: 239fb22cf9a8943ebb2f47c577b4cb26, type: 3}
+    Position: {x: -0.5, y: -0.5, z: 0}
+  - Prefab: {fileID: 157950016704980927, guid: 7a852d1aa5dc9405f9b7c38f38590d50, type: 3}
+    Position: {x: 0, y: -0.5, z: 0}

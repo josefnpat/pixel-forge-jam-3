@@ -10,7 +10,7 @@ public class ThingManager : MonoBehaviour
     private List<GameObject> _poolPrefabs;
 
     [SerializeField]
-    private List<InitThing> _initPrefabs;
+    private InitThingsScriptableObject _initThings;
 
     private List<Thing> _spawnedThings = new List<Thing>();
     private List<Thing> _randomThings = new List<Thing>();
@@ -27,7 +27,7 @@ public class ThingManager : MonoBehaviour
 
     public void Start()
     {
-        foreach (InitThing initThing in _initPrefabs)
+        foreach (InitThing initThing in _initThings.InitThings)
         {
             InitThing(initThing);
         }
@@ -46,22 +46,43 @@ public class ThingManager : MonoBehaviour
         }
     }
 
-    private Thing InitThingRandom()
+    private void InitThingRandom()
     {
-        Thing thing = InitThing(_poolPrefabs[Random.Range(0,_poolPrefabs.Count)]);
-        _randomThings.Add(thing);
-        float x = Random.Range(_randomPositionXMin,_randomPositionXMax);
-        float y = Random.Range(_randomPositionYMin,_randomPositionYMax);
-        thing.transform.position = new Vector3(x,_offscreenPositionY,0);
-        thing.TweenTo(new Vector3(x,y,0));
+        if (_poolPrefabs.Count > 0)
+        {
+            Thing thing = InitThing(_poolPrefabs[Random.Range(0,_poolPrefabs.Count)]);
+            _randomThings.Add(thing);
+            float x = Random.Range(_randomPositionXMin,_randomPositionXMax);
+            float y = Random.Range(_randomPositionYMin,_randomPositionYMax);
+            TweenThingToPosition(thing, new Vector3(x,y,0));
+            SetRandomRotationFull(thing);
+        }
+    }
+
+    private void SetRandomRotationFull(Thing thing)
+    {
         thing.transform.rotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
-        return thing;
+    }
+
+    private void SetRandomRotationPartial(Thing thing)
+    {
+        thing.transform.rotation = Quaternion.Euler(0f, 0f, Random.Range(-20f, 20f));
+    }
+
+    private void TweenThingToPosition(Thing thing, Vector3 position)
+    {
+        float x = position.x;
+        float y = position.y;
+        thing.transform.position = new Vector3(x, _offscreenPositionY, 0);
+        thing.TweenTo(new Vector3(x, y, 0));
     }
 
     private Thing InitThing(InitThing initThing)
     {
+        Debug.Log($"InitThing:{initThing.Prefab}");
         Thing newThing = InitThing(initThing.Prefab);
-        newThing.transform.position = initThing.Position;
+        SetRandomRotationPartial(newThing);
+        TweenThingToPosition(newThing, initThing.Position);
         return newThing;
     }
 
@@ -71,7 +92,10 @@ public class ThingManager : MonoBehaviour
         Thing thing = go.GetComponent<Thing>();
         thing.Prefab = prefab;
         
-        thing.OnEventCreate.AddListener(EventCreate);
+        thing.OnEventAddToPool.AddListener(EventAddToPool);
+        thing.OnEventCreateThing.AddListener(EventCreateThing);
+        thing.OnEventCreateThings.AddListener(EventCreateThings);
+        thing.OnEventInit.AddListener(EventInit);
         thing.OnEventRemove.AddListener(EventRemove);
         thing.OnGrabStart.AddListener(GrabStart);
         thing.OnGrabEnd.AddListener(GrabEnd);
@@ -81,11 +105,39 @@ public class ThingManager : MonoBehaviour
         return thing;
     }
 
-    private void EventCreate(Thing thing, GameObject prefab)
+    private void EventAddToPool(GameObject prefab)
+    {
+        if (!_poolPrefabs.Contains(prefab))
+        {
+            _poolPrefabs.Add(prefab);
+        }
+    }
+
+    private void EventCreateThing(Thing thing, GameObject prefab)
     {
         Thing newThing = InitThing(prefab);
         newThing.transform.position = thing.transform.position;
         BumpSortOrder(newThing);
+    }
+
+    private void EventCreateThings(Thing thing, InitThingsScriptableObject initThingsScriptableObject)
+    {
+        foreach (InitThing initThing in initThingsScriptableObject.InitThings)
+        {
+            Thing newThing = InitThing(initThing);
+            TweenThingToPosition(newThing, initThing.Position);
+            BumpSortOrder(newThing);
+        }
+    }
+
+    private void EventInit(InitThingsScriptableObject initThingsScriptableObject)
+    {
+        foreach (InitThing initThing in initThingsScriptableObject.InitThings)
+        {
+            Thing newThing = InitThing(initThing);
+            TweenThingToPosition(newThing, initThing.Position);
+            BumpSortOrder(newThing);
+        }
     }
 
     private void EventRemove(Thing thing)

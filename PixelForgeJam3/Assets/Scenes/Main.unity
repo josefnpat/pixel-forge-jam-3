@@ -543,21 +543,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497043de4a75e4fc9a5c3b5b9f4bda85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ThingManager
-  _poolPrefabs:
-  - {fileID: 157950016704980927, guid: 509e2fdd763b14465a0d0f829be627b8, type: 3}
-  - {fileID: 157950016704980927, guid: ad3140924783347bba94f56044dfeff0, type: 3}
-  - {fileID: 6608489157364562905, guid: d777d7e65fa1a4d79a1cdb3374a628a1, type: 3}
-  _initPrefabs:
-  - Prefab: {fileID: 157950016704980927, guid: 2496e84271ecf4c28a5bc32d854eea71, type: 3}
-    Position: {x: -1, y: 0, z: 0}
-  - Prefab: {fileID: 157950016704980927, guid: 549f6c346c2a245df9d00803d5c3a4d0, type: 3}
-    Position: {x: 1, y: 0, z: 0}
-  - Prefab: {fileID: 157950016704980927, guid: 471582380906847f38bf7d1e2f481a49, type: 3}
-    Position: {x: 0, y: 0.5, z: 0}
-  - Prefab: {fileID: 157950016704980927, guid: 7a852d1aa5dc9405f9b7c38f38590d50, type: 3}
-    Position: {x: 0, y: -0.5, z: 0}
-  - Prefab: {fileID: 2426678915443273351, guid: 239fb22cf9a8943ebb2f47c577b4cb26, type: 3}
-    Position: {x: 1, y: -0.5, z: 0}
+  _poolPrefabs: []
+  _initThings: {fileID: 11400000, guid: fe499de9c61824b7e91c61d8bccd362b, type: 2}
 --- !u!4 &1240047670
 Transform:
   m_ObjectHideFlags: 0
