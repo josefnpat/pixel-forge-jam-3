@@ -113,8 +113,9 @@ public class Thing : MonoBehaviour, IPointerDownHandler
         OnEventCreate.Invoke(this, prefab);
     }
 
-    public void EventMusicPlay(LineScriptableObjectScript line)
+    public void EventMusicPlay()
     {
+        LineScriptableObjectScript line = GetComponent<MusicData>().Line;
         _musicManager.Play(line.AudioClip);
         _subtitleManager.Play(line.English, line.AudioClip.length);
     }

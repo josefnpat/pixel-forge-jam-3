@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1506262060126271433}
   - component: {fileID: 8320095696431374714}
   - component: {fileID: 7876714343050199209}
+  - component: {fileID: 2239990041983041416}
   - component: {fileID: 1936020899811136848}
   - component: {fileID: 3029084151521461276}
   m_Layer: 0
@@ -165,10 +166,10 @@ MonoBehaviour:
         - m_Target: {fileID: 7876714343050199209}
           m_TargetAssemblyTypeName: Thing, Assembly-CSharp
           m_MethodName: EventMusicPlay
-          m_Mode: 2
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: LineScriptableObjectScript, Assembly-CSharp
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -225,6 +226,19 @@ MonoBehaviour:
   _useThingEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2239990041983041416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157950016704980927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc6c4c74530b6450ab2563ab15a593ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicData
+  _line: {fileID: 0}
 --- !u!61 &1936020899811136848
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -52,8 +52,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7876714343050199209, guid: d8bf492c318cf43d88c9c43cfbd14557, type: 3}
-      propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgument
+    - target: {fileID: 2239990041983041416, guid: d8bf492c318cf43d88c9c43cfbd14557, type: 3}
+      propertyPath: _line
       value: 
       objectReference: {fileID: 11400000, guid: 1807771b1722b43c0b1d59ce0c09e519, type: 2}
     m_RemovedComponents: []
