@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ca1c1448eb941cca70d323cbfbff8c, type: 3}
   m_Name: GameOfTonesScriptableObjectScript
   m_EditorClassIdentifier: Assembly-CSharp::LineScriptableObjectScript
-  AudioClip: {fileID: 8300000, guid: ad7f8275b86e24f94ad9a79b325de84e, type: 3}
-  English: Do Do Do Do Do Do Do Do Do Do Do Do
+  Lines:
+  - AudioClip: {fileID: 8300000, guid: ad7f8275b86e24f94ad9a79b325de84e, type: 3}
+    English: Do do toodley do do do toot

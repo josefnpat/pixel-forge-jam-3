@@ -7,8 +7,7 @@ using UnityEngine.EventSystems;
 public class Thing : MonoBehaviour, IPointerDownHandler
 {
     private SfxManager _sfxManager;
-    private MusicManager _musicManager;
-    private SubtitleManager _subtitleManager;
+    private LineManager _lineManager;
     private BoxCollider2D _boxCollider2D;
     private Draggable2D _draggable2D;
     public UnityEvent<Thing> OnGrabStart = new UnityEvent<Thing>();
@@ -35,8 +34,7 @@ public class Thing : MonoBehaviour, IPointerDownHandler
     public void Awake()
     {
         _sfxManager = FindFirstObjectByType<SfxManager>();
-        _musicManager = FindFirstObjectByType<MusicManager>();
-        _subtitleManager = FindFirstObjectByType<SubtitleManager>();
+        _lineManager = FindFirstObjectByType<LineManager>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _draggable2D = GetComponent<Draggable2D>();
         if (_draggable2D)
@@ -134,15 +132,13 @@ public class Thing : MonoBehaviour, IPointerDownHandler
 
     public void EventMusicPlay()
     {
-        LineScriptableObjectScript line = GetComponent<MusicData>().Line;
-        _musicManager.Play(line.AudioClip);
-        _subtitleManager.Play(line.English, line.AudioClip.length);
+        LinesScriptableObjectScript lines = GetComponent<MusicData>().Lines;
+        _lineManager.Play(lines);
     }
 
     public void EventMusicStop()
     {
-        _musicManager.Stop();
-        _subtitleManager.Stop();
+        _lineManager.Stop();
     }
 
     public void TweenTo(Vector3 target)

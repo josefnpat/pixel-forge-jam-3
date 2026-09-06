@@ -1,8 +1,8 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "LineScriptableObjectScript", menuName = "Scriptable Objects/LineScriptableObjectScript")]
-public class LineScriptableObjectScript : ScriptableObject
+[CreateAssetMenu(fileName = "LinesScriptableObjectScript", menuName = "Scriptable Objects/LinesScriptableObjectScript")]
+public partial class LinesScriptableObjectScript : ScriptableObject
 {
-    public AudioClip AudioClip;
-    public string English;
+    public List<Line> Lines;
 }
