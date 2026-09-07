@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540114551caaf43fbbecb8fd6e4e924e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Thing
+  _maxInitCount: 2147483647
   _thresholdGoodMin: 0
   _thresholdGoodMax: 2147483647
   _thresholdBadMin: 0
@@ -131,6 +132,9 @@ MonoBehaviour:
   OnEventCreateThing:
     m_PersistentCalls:
       m_Calls: []
+  OnEventCreateCassete:
+    m_PersistentCalls:
+      m_Calls: []
   OnEventCreateThings:
     m_PersistentCalls:
       m_Calls: []
@@ -143,7 +147,26 @@ MonoBehaviour:
   OnEventBad:
     m_PersistentCalls:
       m_Calls: []
-  _combineThingEvents: []
+  OnEventEarnMoney:
+    m_PersistentCalls:
+      m_Calls: []
+  _combineThingEvents:
+  - Prefab: {fileID: 157950016704980927, guid: 2496e84271ecf4c28a5bc32d854eea71, type: 3}
+    UnityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7876714343050199209}
+          m_TargetAssemblyTypeName: Thing, Assembly-CSharp
+          m_MethodName: EventRemove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   _useThingEvent:
     m_PersistentCalls:
       m_Calls: []
