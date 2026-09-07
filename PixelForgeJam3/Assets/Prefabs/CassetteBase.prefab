@@ -116,10 +116,22 @@ MonoBehaviour:
   OnUse:
     m_PersistentCalls:
       m_Calls: []
+  OnSpriteRendererSortingOrder:
+    m_PersistentCalls:
+      m_Calls: []
   OnEventRemove:
     m_PersistentCalls:
       m_Calls: []
-  OnEventCreate:
+  OnEventAddToPool:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventCreateThing:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventCreateThings:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventInit:
     m_PersistentCalls:
       m_Calls: []
   _combineThingEvents:
@@ -129,10 +141,10 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 7876714343050199209}
           m_TargetAssemblyTypeName: Thing, Assembly-CSharp
-          m_MethodName: EventCreate
+          m_MethodName: EventCreateThing
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 157950016704980927, guid: a76125e29f548422fb89598f765a695c, type: 3}
+            m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -191,38 +203,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Prefab: {fileID: 157950016704980927, guid: 471582380906847f38bf7d1e2f481a49, type: 3}
-    UnityEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7876714343050199209}
-          m_TargetAssemblyTypeName: Thing, Assembly-CSharp
-          m_MethodName: EventRemove
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - Prefab: {fileID: 157950016704980927, guid: 549f6c346c2a245df9d00803d5c3a4d0, type: 3}
-    UnityEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7876714343050199209}
-          m_TargetAssemblyTypeName: Thing, Assembly-CSharp
-          m_MethodName: EventRemove
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   _useThingEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -238,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc6c4c74530b6450ab2563ab15a593ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MusicData
-  _line: {fileID: 0}
+  _lines: {fileID: 0}
 --- !u!61 &1936020899811136848
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Init
   m_EditorClassIdentifier: Assembly-CSharp::InitThingsScriptableObject
   InitThings:
-  - Prefab: {fileID: 157950016704980927, guid: 2496e84271ecf4c28a5bc32d854eea71, type: 3}
+  - Prefab: {fileID: 157950016704980927, guid: 549f6c346c2a245df9d00803d5c3a4d0, type: 3}
     Position: {x: 0.5, y: -0.5, z: 0}
   - Prefab: {fileID: 1203440361082299890, guid: f601aca08f2434b2394b03e66a71b158, type: 3}
     Position: {x: 0, y: 0, z: 0}

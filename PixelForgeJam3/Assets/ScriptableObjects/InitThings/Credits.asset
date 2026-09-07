@@ -21,3 +21,5 @@ MonoBehaviour:
     Position: {x: -0.5, y: -0.5, z: 0}
   - Prefab: {fileID: 157950016704980927, guid: 7a852d1aa5dc9405f9b7c38f38590d50, type: 3}
     Position: {x: 0, y: -0.5, z: 0}
+  - Prefab: {fileID: 157950016704980927, guid: 2496e84271ecf4c28a5bc32d854eea71, type: 3}
+    Position: {x: 1, y: -0.5, z: 0}
