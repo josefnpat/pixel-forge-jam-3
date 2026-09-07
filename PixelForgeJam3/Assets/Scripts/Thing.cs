@@ -28,6 +28,7 @@ public class Thing : MonoBehaviour, IPointerDownHandler
     public UnityEvent<Thing> OnEventRemove = new UnityEvent<Thing>();
     public UnityEvent<GameObject> OnEventAddToPool = new UnityEvent<GameObject>();
     public UnityEvent<Thing, GameObject> OnEventCreateThing = new UnityEvent<Thing, GameObject>();
+    public UnityEvent<Thing, GameObject> OnEventCreateCassete = new UnityEvent<Thing, GameObject>();
     public UnityEvent<Thing, InitThingsScriptableObject> OnEventCreateThings = new UnityEvent<Thing, InitThingsScriptableObject>();
     public UnityEvent<InitThingsScriptableObject> OnEventInit = new UnityEvent<InitThingsScriptableObject>();
     public UnityEvent OnEventGood = new UnityEvent();
@@ -209,6 +210,11 @@ public class Thing : MonoBehaviour, IPointerDownHandler
         OnEventCreateThing.Invoke(this, prefab);
     }
 
+    public void EventCreateCassete()
+    {
+        OnEventCreateCassete.Invoke(this, _lineManager.LinePrefab);
+    }
+
     public void EventCreateThings(InitThingsScriptableObject initThingsScriptableObject)
     {
         OnEventCreateThings.Invoke(this, initThingsScriptableObject);
@@ -222,7 +228,7 @@ public class Thing : MonoBehaviour, IPointerDownHandler
     public void EventMusicPlay()
     {
         LinesScriptableObjectScript lines = GetComponent<MusicData>().Lines;
-        _lineManager.Play(lines);
+        _lineManager.Play(lines, this.Prefab);
     }
 
     public void EventMusicStop()

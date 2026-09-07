@@ -10,6 +10,8 @@ public class LineManager : MonoBehaviour
     [SerializeField]
     private AudioSource _audioSource;
     private List<Line> _lines;
+    private GameObject _linePrefab;
+    public GameObject LinePrefab { get { return _linePrefab; } }
     private Line _currentLine;
     private float _delta;
 
@@ -47,9 +49,10 @@ public class LineManager : MonoBehaviour
         _text.text = line.English;
     }
 
-    public void Play(LinesScriptableObjectScript lines)
+    public void Play(LinesScriptableObjectScript lines, GameObject prefab)
     {
         _lines = lines.Lines.ToList();
+        _linePrefab = prefab;
     }
 
     public void Stop()

@@ -134,14 +134,19 @@ public class ThingManager : MonoBehaviour
         return null;
     }
 
-    private Thing InitThing(GameObject prefab)
+    private Thing CreateThing(GameObject prefab)
+    {
+        return InitThing(prefab, true);
+    }
+
+    private Thing InitThing(GameObject prefab, bool ignoreInitCount = false)
     {
         if (!_thingInitCounts.ContainsKey(prefab))
         {
             _thingInitCounts[prefab] = 0;
         }
         int count = _thingInitCounts[prefab];
-        if (prefab.GetComponent<Thing>().CanInit(count))
+        if (ignoreInitCount || prefab.GetComponent<Thing>().CanInit(count))
         {
             _thingInitCounts[prefab]++;
 
@@ -151,6 +156,7 @@ public class ThingManager : MonoBehaviour
             
             thing.OnEventAddToPool.AddListener(EventAddToPool);
             thing.OnEventCreateThing.AddListener(EventCreateThing);
+            thing.OnEventCreateCassete.AddListener(EventCreateCassete);
             thing.OnEventCreateThings.AddListener(EventCreateThings);
             thing.OnEventInit.AddListener(EventInit);
             thing.OnEventRemove.AddListener(EventRemove);
@@ -168,6 +174,11 @@ public class ThingManager : MonoBehaviour
         }
 
         return null;
+    }
+
+    private void EventCreateCassete(Thing thing, GameObject prefab)
+    {
+        EventCreateThing(thing, prefab);
     }
 
     private void EventEarnMoney(int value)
@@ -200,12 +211,9 @@ public class ThingManager : MonoBehaviour
 
     private void EventCreateThing(Thing thing, GameObject prefab)
     {
-        Thing newThing = InitThing(prefab);
-        if (newThing)
-        {
-            newThing.transform.position = thing.transform.position;
-            BumpSortOrder(newThing);
-        }
+        Thing newThing = CreateThing(prefab);
+        newThing.transform.position = thing.transform.position;
+        BumpSortOrder(newThing);
     }
 
     private void EventCreateThings(Thing thing, InitThingsScriptableObject initThingsScriptableObject)
