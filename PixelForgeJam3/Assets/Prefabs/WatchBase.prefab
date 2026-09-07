@@ -110,6 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540114551caaf43fbbecb8fd6e4e924e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Thing
+  _thresholdGoodMin: 0
+  _thresholdGoodMax: 2147483647
+  _thresholdBadMin: 0
+  _thresholdBadMax: 2147483647
   OnGrabStart:
     m_PersistentCalls:
       m_Calls: []
@@ -135,6 +139,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnEventInit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventGood:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventBad:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventEarnMoney:
     m_PersistentCalls:
       m_Calls: []
   _combineThingEvents:
@@ -166,6 +179,18 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 7876714343050199209}
+          m_TargetAssemblyTypeName: Thing, Assembly-CSharp
+          m_MethodName: EventMoneyProcess
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0

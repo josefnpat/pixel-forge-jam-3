@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
 
 public class Thing : MonoBehaviour, IPointerDownHandler
 {
@@ -33,6 +31,7 @@ public class Thing : MonoBehaviour, IPointerDownHandler
     public UnityEvent<InitThingsScriptableObject> OnEventInit = new UnityEvent<InitThingsScriptableObject>();
     public UnityEvent OnEventGood = new UnityEvent();
     public UnityEvent OnEventBad = new UnityEvent();
+    public UnityEvent<int> OnEventEarnMoney = new UnityEvent<int>();
 
     [SerializeField]
     private List<CombineThingEvent> _combineThingEvents;
@@ -179,6 +178,11 @@ public class Thing : MonoBehaviour, IPointerDownHandler
                 OnEventGood.Invoke();
             }
         }
+    }
+
+    public void EventMoneyProcess(int value)
+    {
+        OnEventEarnMoney.Invoke(value);
     }
 
     public void SetLastCombinedEvent(Thing thing)

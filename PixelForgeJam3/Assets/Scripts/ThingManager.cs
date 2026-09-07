@@ -13,6 +13,9 @@ public class ThingManager : MonoBehaviour
     [SerializeField]
     private InitThingsScriptableObject _initThings;
 
+    [SerializeField]
+    private GameObject _moneyPrefab;
+
     private List<Thing> _spawnedThings = new List<Thing>();
     private List<Thing> _randomThings = new List<Thing>();
 
@@ -60,13 +63,19 @@ public class ThingManager : MonoBehaviour
         List<GameObject> thresholdPoolPrefabs = ThresholdPoolPrefabs();
         if (thresholdPoolPrefabs.Count > 0)
         {
-            Thing thing = InitThing(thresholdPoolPrefabs[Random.Range(0,thresholdPoolPrefabs.Count)]);
+            Thing thing = InitThingFromOffscreen(thresholdPoolPrefabs[Random.Range(0,thresholdPoolPrefabs.Count)]);
             _randomThings.Add(thing);
-            float x = Random.Range(_randomPositionXMin,_randomPositionXMax);
-            float y = Random.Range(_randomPositionYMin,_randomPositionYMax);
-            TweenThingToPosition(thing, new Vector3(x,y,0));
-            SetRandomRotationFull(thing);
         }
+    }
+
+    private Thing InitThingFromOffscreen(GameObject prefab)
+    {
+        Thing thing = InitThing(prefab);
+        float x = Random.Range(_randomPositionXMin,_randomPositionXMax);
+        float y = Random.Range(_randomPositionYMin,_randomPositionYMax);
+        TweenThingToPosition(thing, new Vector3(x,y,0));
+        SetRandomRotationFull(thing);
+        return thing;
     }
 
     private List<GameObject> ThresholdPoolPrefabs()
@@ -124,12 +133,22 @@ public class ThingManager : MonoBehaviour
         thing.OnEventRemove.AddListener(EventRemove);
         thing.OnEventGood.AddListener(EventGood);
         thing.OnEventBad.AddListener(EventBad);
+        thing.OnEventEarnMoney.AddListener(EventEarnMoney);
         thing.OnGrabStart.AddListener(GrabStart);
         thing.OnGrabEnd.AddListener(GrabEnd);
         thing.OnUse.AddListener(Use);
+        
         _spawnedThings.Add(thing);
         BumpSortOrder(thing);
         return thing;
+    }
+
+    private void EventEarnMoney(int value)
+    {
+        for (int i = 0; i < value; i++)
+        {
+            InitThingFromOffscreen(_moneyPrefab);
+        }
     }
 
     private void EventGood()
