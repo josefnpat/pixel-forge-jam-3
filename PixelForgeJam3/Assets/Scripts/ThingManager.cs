@@ -25,8 +25,15 @@ public class ThingManager : MonoBehaviour
     private float _randomPositionYMin = -0.25f;
     private float _randomPositionYMax = 0.25f;
 
+    private float _gameTime;
+    public float GameTime { get { return _gameTime; } }
+
     public void Start()
     {
+        System.DateTimeOffset utcNow = System.DateTimeOffset.UtcNow;
+        long utcUnixSeconds = utcNow.ToUnixTimeSeconds();
+        long offsetSeconds = (long)System.TimeZoneInfo.Local.GetUtcOffset(utcNow).TotalSeconds;
+        _gameTime = utcUnixSeconds + offsetSeconds;
         foreach (InitThing initThing in _initThings.InitThings)
         {
             InitThing(initThing);
@@ -35,6 +42,7 @@ public class ThingManager : MonoBehaviour
 
     public void Update()
     {
+        _gameTime += Time.deltaTime;
         _randomThingSpawnDelta -= Time.deltaTime;
         if (_randomThingSpawnDelta <= 0)
         {
