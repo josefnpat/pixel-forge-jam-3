@@ -106,16 +106,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540114551caaf43fbbecb8fd6e4e924e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Thing
+  _maxInitCount: 1
+  _thresholdGoodMin: 0
+  _thresholdGoodMax: 2147483647
+  _thresholdBadMin: 0
+  _thresholdBadMax: 2147483647
   OnGrabStart:
     m_PersistentCalls:
       m_Calls: []
   OnGrabEnd:
     m_PersistentCalls:
       m_Calls: []
+  OnUse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSpriteRendererSortingOrder:
+    m_PersistentCalls:
+      m_Calls: []
   OnEventRemove:
     m_PersistentCalls:
       m_Calls: []
+  OnEventAddToPool:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventCreateThing:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventCreateThings:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventInit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventGood:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventBad:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventEarnMoney:
+    m_PersistentCalls:
+      m_Calls: []
   _combineThingEvents: []
+  _useThingEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &1936020899811136848
 BoxCollider2D:
   m_ObjectHideFlags: 0

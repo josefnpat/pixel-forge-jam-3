@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 
 public class Thing : MonoBehaviour, IPointerDownHandler
 {
-
+    [SerializeField]
+    private int _maxInitCount = int.MaxValue;
     [SerializeField]
     private int _thresholdGoodMin = 0;
     [SerializeField]
@@ -81,6 +82,11 @@ public class Thing : MonoBehaviour, IPointerDownHandler
             bad <= _thresholdBadMax &&
             good >= _thresholdGoodMin &&
             good <= _thresholdGoodMax;
+    }
+
+    public bool CanInit(int initCount)
+    {
+        return initCount < _maxInitCount;
     }
 
     private void GrabStart()

@@ -57,14 +57,6 @@ PrefabInstance:
       value: Happy?
       objectReference: {fileID: 0}
     - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
-      propertyPath: _thresholdBadMax
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
-      propertyPath: _thresholdGoodMax
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
       propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}

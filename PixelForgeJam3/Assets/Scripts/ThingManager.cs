@@ -8,6 +8,8 @@ public class ThingManager : MonoBehaviour
     private int _eventBad = 0;
     private int _currentSortingOrder = 0;
 
+    private Dictionary<GameObject, int> _thingInitCounts = new Dictionary<GameObject, int>();
+
     [SerializeField]
     private List<GameObject> _poolPrefabs;
 
@@ -65,18 +67,25 @@ public class ThingManager : MonoBehaviour
         if (thresholdPoolPrefabs.Count > 0)
         {
             Thing thing = InitThingFromOffscreen(thresholdPoolPrefabs[Random.Range(0,thresholdPoolPrefabs.Count)]);
-            _randomThings.Add(thing);
+            if (thing)
+            {
+                _randomThings.Add(thing);
+            }
         }
     }
 
     private Thing InitThingFromOffscreen(GameObject prefab)
     {
         Thing thing = InitThing(prefab);
-        float x = Random.Range(_randomPositionXMin,_randomPositionXMax);
-        float y = Random.Range(_randomPositionYMin,_randomPositionYMax);
-        TweenThingToPosition(thing, new Vector3(x,y,0));
-        SetRandomRotationFull(thing);
-        return thing;
+        if (thing)
+        {
+            float x = Random.Range(_randomPositionXMin,_randomPositionXMax);
+            float y = Random.Range(_randomPositionYMin,_randomPositionYMax);
+            TweenThingToPosition(thing, new Vector3(x,y,0));
+            SetRandomRotationFull(thing);
+            return thing;
+        }
+        return null;
     }
 
     private List<GameObject> ThresholdPoolPrefabs()
@@ -116,32 +125,49 @@ public class ThingManager : MonoBehaviour
     {
         Debug.Log($"InitThing:{initThing.Prefab}");
         Thing newThing = InitThing(initThing.Prefab);
-        SetRandomRotationPartial(newThing);
-        TweenThingToPosition(newThing, initThing.Position);
-        return newThing;
+        if (newThing)
+        {
+            SetRandomRotationPartial(newThing);
+            TweenThingToPosition(newThing, initThing.Position);
+            return newThing;
+        }
+        return null;
     }
 
     private Thing InitThing(GameObject prefab)
     {
-        GameObject go = Instantiate(prefab);
-        Thing thing = go.GetComponent<Thing>();
-        thing.Prefab = prefab;
-        
-        thing.OnEventAddToPool.AddListener(EventAddToPool);
-        thing.OnEventCreateThing.AddListener(EventCreateThing);
-        thing.OnEventCreateThings.AddListener(EventCreateThings);
-        thing.OnEventInit.AddListener(EventInit);
-        thing.OnEventRemove.AddListener(EventRemove);
-        thing.OnEventGood.AddListener(EventGood);
-        thing.OnEventBad.AddListener(EventBad);
-        thing.OnEventEarnMoney.AddListener(EventEarnMoney);
-        thing.OnGrabStart.AddListener(GrabStart);
-        thing.OnGrabEnd.AddListener(GrabEnd);
-        thing.OnUse.AddListener(Use);
-        
-        _spawnedThings.Add(thing);
-        BumpSortOrder(thing);
-        return thing;
+        if (!_thingInitCounts.ContainsKey(prefab))
+        {
+            _thingInitCounts[prefab] = 0;
+        }
+        int count = _thingInitCounts[prefab];
+        if (prefab.GetComponent<Thing>().CanInit(count))
+        {
+            _thingInitCounts[prefab]++;
+
+            GameObject go = Instantiate(prefab);
+            Thing thing = go.GetComponent<Thing>();
+            thing.Prefab = prefab;
+            
+            thing.OnEventAddToPool.AddListener(EventAddToPool);
+            thing.OnEventCreateThing.AddListener(EventCreateThing);
+            thing.OnEventCreateThings.AddListener(EventCreateThings);
+            thing.OnEventInit.AddListener(EventInit);
+            thing.OnEventRemove.AddListener(EventRemove);
+            thing.OnEventGood.AddListener(EventGood);
+            thing.OnEventBad.AddListener(EventBad);
+            thing.OnEventEarnMoney.AddListener(EventEarnMoney);
+            thing.OnGrabStart.AddListener(GrabStart);
+            thing.OnGrabEnd.AddListener(GrabEnd);
+            thing.OnUse.AddListener(Use);
+            
+            _spawnedThings.Add(thing);
+            BumpSortOrder(thing);
+            
+            return thing;
+        }
+
+        return null;
     }
 
     private void EventEarnMoney(int value)
@@ -175,8 +201,11 @@ public class ThingManager : MonoBehaviour
     private void EventCreateThing(Thing thing, GameObject prefab)
     {
         Thing newThing = InitThing(prefab);
-        newThing.transform.position = thing.transform.position;
-        BumpSortOrder(newThing);
+        if (newThing)
+        {
+            newThing.transform.position = thing.transform.position;
+            BumpSortOrder(newThing);
+        }
     }
 
     private void EventCreateThings(Thing thing, InitThingsScriptableObject initThingsScriptableObject)
@@ -184,8 +213,11 @@ public class ThingManager : MonoBehaviour
         foreach (InitThing initThing in initThingsScriptableObject.InitThings)
         {
             Thing newThing = InitThing(initThing);
-            TweenThingToPosition(newThing, initThing.Position);
-            BumpSortOrder(newThing);
+            if (newThing)
+            {
+                TweenThingToPosition(newThing, initThing.Position);
+                BumpSortOrder(newThing);
+            }
         }
     }
 
@@ -194,8 +226,11 @@ public class ThingManager : MonoBehaviour
         foreach (InitThing initThing in initThingsScriptableObject.InitThings)
         {
             Thing newThing = InitThing(initThing);
-            TweenThingToPosition(newThing, initThing.Position);
-            BumpSortOrder(newThing);
+            if (newThing)
+            {
+                TweenThingToPosition(newThing, initThing.Position);
+                BumpSortOrder(newThing);
+            }
         }
     }
 
