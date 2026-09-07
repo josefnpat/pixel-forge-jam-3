@@ -3,9 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class Thing : MonoBehaviour, IPointerDownHandler
 {
+
+    [SerializeField]
+    private int _thresholdGoodMin = 0;
+    [SerializeField]
+    private int _thresholdGoodMax = int.MaxValue;
+    [SerializeField]
+    private int _thresholdBadMin = 0;
+    [SerializeField]
+    private int _thresholdBadMax = int.MaxValue;
+
     private SfxManager _sfxManager;
     private LineManager _lineManager;
     private BoxCollider2D _boxCollider2D;
@@ -20,6 +31,8 @@ public class Thing : MonoBehaviour, IPointerDownHandler
     public UnityEvent<Thing, GameObject> OnEventCreateThing = new UnityEvent<Thing, GameObject>();
     public UnityEvent<Thing, InitThingsScriptableObject> OnEventCreateThings = new UnityEvent<Thing, InitThingsScriptableObject>();
     public UnityEvent<InitThingsScriptableObject> OnEventInit = new UnityEvent<InitThingsScriptableObject>();
+    public UnityEvent OnEventGood = new UnityEvent();
+    public UnityEvent OnEventBad = new UnityEvent();
 
     [SerializeField]
     private List<CombineThingEvent> _combineThingEvents;
@@ -60,6 +73,15 @@ public class Thing : MonoBehaviour, IPointerDownHandler
             Vector3 movement = _tweenTo - _tweenFrom;
             transform.position = _tweenFrom + movement * ( _tweenDelta / _tweenTime);
         }
+    }
+
+    public bool WithinThreshold(int good, int bad)
+    {
+        return
+            bad >= _thresholdBadMin &&
+            bad <= _thresholdBadMax &&
+            good >= _thresholdGoodMin &&
+            good <= _thresholdGoodMax;
     }
 
     private void GrabStart()
@@ -120,6 +142,43 @@ public class Thing : MonoBehaviour, IPointerDownHandler
     public void EventAddToPool(GameObject prefab)
     {
         OnEventAddToPool.Invoke(prefab);
+    }
+
+    public void EventGood()
+    {
+        OnEventGood.Invoke();
+    }
+
+    public void EventBad()
+    {
+        OnEventBad.Invoke();
+    }
+
+    public void EventSurveyProcess(bool markedIsGood)
+    {
+        PaperSurveyData paperSurveyData = GetComponent<PaperSurveyData>();
+        if (paperSurveyData.Value())
+        {
+            if (markedIsGood)
+            {
+                OnEventGood.Invoke();
+            }
+            else
+            {
+                OnEventBad.Invoke();
+            }
+        }
+        else
+        {
+            if (markedIsGood)
+            {
+                OnEventBad.Invoke();
+            }
+            else
+            {
+                OnEventGood.Invoke();
+            }
+        }
     }
 
     public void SetLastCombinedEvent(Thing thing)

@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class ThingManager : MonoBehaviour
 {
-
+    private int _eventGood = 0;
+    private int _eventBad = 0;
     private int _currentSortingOrder = 0;
 
     [SerializeField]
@@ -56,15 +57,31 @@ public class ThingManager : MonoBehaviour
 
     private void InitThingRandom()
     {
-        if (_poolPrefabs.Count > 0)
+        List<GameObject> thresholdPoolPrefabs = ThresholdPoolPrefabs();
+        if (thresholdPoolPrefabs.Count > 0)
         {
-            Thing thing = InitThing(_poolPrefabs[Random.Range(0,_poolPrefabs.Count)]);
+            Thing thing = InitThing(thresholdPoolPrefabs[Random.Range(0,thresholdPoolPrefabs.Count)]);
             _randomThings.Add(thing);
             float x = Random.Range(_randomPositionXMin,_randomPositionXMax);
             float y = Random.Range(_randomPositionYMin,_randomPositionYMax);
             TweenThingToPosition(thing, new Vector3(x,y,0));
             SetRandomRotationFull(thing);
         }
+    }
+
+    private List<GameObject> ThresholdPoolPrefabs()
+    {
+        List<GameObject> thresholdPoolPrefabs = new List<GameObject>();
+        foreach (GameObject prefab in _poolPrefabs)
+        {
+            Thing thing = prefab.GetComponent<Thing>();
+            if (thing.WithinThreshold(_eventGood, _eventBad))
+            {
+                thresholdPoolPrefabs.Add(prefab);
+            }
+        }
+        Debug.Log($"There are {_poolPrefabs.Count} things in the pool and {thresholdPoolPrefabs.Count} of them are within threshold.");
+        return thresholdPoolPrefabs;
     }
 
     private void SetRandomRotationFull(Thing thing)
@@ -105,12 +122,26 @@ public class ThingManager : MonoBehaviour
         thing.OnEventCreateThings.AddListener(EventCreateThings);
         thing.OnEventInit.AddListener(EventInit);
         thing.OnEventRemove.AddListener(EventRemove);
+        thing.OnEventGood.AddListener(EventGood);
+        thing.OnEventBad.AddListener(EventBad);
         thing.OnGrabStart.AddListener(GrabStart);
         thing.OnGrabEnd.AddListener(GrabEnd);
         thing.OnUse.AddListener(Use);
         _spawnedThings.Add(thing);
         BumpSortOrder(thing);
         return thing;
+    }
+
+    private void EventGood()
+    {
+        _eventGood++;
+        Debug.Log($"Good++: {_eventGood}");
+    }
+
+    private void EventBad()
+    {
+        _eventBad++;
+        Debug.Log($"Bad++: {_eventBad}");
     }
 
     private void EventAddToPool(GameObject prefab)

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3029084151521461276}
   - component: {fileID: 2328537173368086327}
   - component: {fileID: 8702363872471561457}
+  - component: {fileID: 8260493658401702852}
   m_Layer: 0
   m_Name: PaperSurveyBase
   m_TagString: Untagged
@@ -149,6 +150,12 @@ MonoBehaviour:
   OnEventInit:
     m_PersistentCalls:
       m_Calls: []
+  OnEventGood:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventBad:
+    m_PersistentCalls:
+      m_Calls: []
   _combineThingEvents:
   - Prefab: {fileID: 157950016704980927, guid: 549f6c346c2a245df9d00803d5c3a4d0, type: 3}
     UnityEvent:
@@ -280,6 +287,19 @@ MonoBehaviour:
   spriteRenderers:
   - {fileID: 8916772064170948330}
   - {fileID: 7076377888940451649}
+--- !u!114 &8260493658401702852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157950016704980927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df350038e2fab44e293d15df6fa3ce15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PaperSurveyData
+  _checkboxUse: {fileID: 4552745621752008615}
 --- !u!1 &357186909635516304
 GameObject:
   m_ObjectHideFlags: 0

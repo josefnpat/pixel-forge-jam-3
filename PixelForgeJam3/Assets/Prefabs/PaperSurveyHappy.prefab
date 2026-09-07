@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 157950016704980927, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
       propertyPath: m_Name
-      value: PaperSurvey
+      value: PaperSurveyHappy
       objectReference: {fileID: 0}
     - target: {fileID: 1506262060126271433, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56,8 +56,59 @@ PrefabInstance:
       propertyPath: m_text
       value: Happy?
       objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
+      propertyPath: _thresholdBadMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
+      propertyPath: _thresholdGoodMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
+      propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
+      propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
+      propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 3803433518784109775}
+    - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
+      propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
+      propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: EventSurveyProcess
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
+      propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Thing, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
+      propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
+      propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
+--- !u!114 &3803433518784109775 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
+  m_PrefabInstance: {fileID: 6451185825606245478}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 540114551caaf43fbbecb8fd6e4e924e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Thing

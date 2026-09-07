@@ -28,7 +28,6 @@ public class WatchHands : MonoBehaviour
         int minute = dateTimeOffset.Minute;
         int hour24 = dateTimeOffset.Hour;
         int hour12 = hour24 % 12 == 0 ? 12 : hour24 % 12;
-        Debug.Log($"Time: {hour12}:{minute}");
 
         MinuteTransform.transform.rotation = transform.rotation * Quaternion.Euler(
             0f,
