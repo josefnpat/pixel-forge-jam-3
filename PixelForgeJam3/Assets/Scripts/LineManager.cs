@@ -43,6 +43,7 @@ public class LineManager : MonoBehaviour
 
     private void Play(Line line)
     {
+        _currentLine = line;
         _delta = 0;
         _audioSource.clip = line.AudioClip;
         _audioSource.Play();
@@ -62,6 +63,5 @@ public class LineManager : MonoBehaviour
         _text.text = string.Empty;
         _currentLine = null;
     }
-
 
 }
