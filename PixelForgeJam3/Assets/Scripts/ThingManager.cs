@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ThingManager : MonoBehaviour
 {
@@ -224,7 +225,7 @@ public class ThingManager : MonoBehaviour
     private void GrabEnd(Thing thing)
     {
         List<Thing> findThings = FindIntersectingThings(thing);
-        Thing foundThing = GetTopThing(findThings);
+        Thing foundThing = GetClosestThing(findThings);
         if (foundThing != null)
         {
             Debug.Log($"GrabEnd: {thing} -> {foundThing}");
@@ -254,27 +255,21 @@ public class ThingManager : MonoBehaviour
         return findThings;
     }
 
-    private Thing GetTopThing(List<Thing> findThings)
+    private Thing GetClosestThing(List<Thing> findThings)
     {
-        Thing foundThing = null;
-        int topThingSortOrder = int.MinValue;
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Thing closestThing = null;
+        float closestDistance = float.MaxValue;
         foreach (Thing findThing in findThings)
         {
-            if (foundThing == null)
+            float distance = Vector2.Distance(mousePos, findThing.BoxCollider2D.ClosestPoint(mousePos));
+            if (distance < closestDistance)
             {
-                foundThing = findThing;
-            }
-            else
-            {
-                int touchingThingSortOrder = findThing.GetSpriteRendererSortingOrder();
-                if (touchingThingSortOrder > topThingSortOrder)
-                {
-                    foundThing = findThing;
-                    topThingSortOrder = touchingThingSortOrder;
-                }
+                closestDistance = distance;
+                closestThing = findThing;
             }
         }
-        return foundThing;
+        return closestThing;
     }
 
     public void Use(Thing thing)
