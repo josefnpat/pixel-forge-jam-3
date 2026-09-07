@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1936020899811136848}
   - component: {fileID: 3029084151521461276}
   m_Layer: 0
-  m_Name: Watch
+  m_Name: WatchBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
