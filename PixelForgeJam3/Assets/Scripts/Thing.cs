@@ -34,6 +34,7 @@ public class Thing : MonoBehaviour, IPointerDownHandler
     public UnityEvent OnEventGood = new UnityEvent();
     public UnityEvent OnEventBad = new UnityEvent();
     public UnityEvent<int> OnEventEarnMoney = new UnityEvent<int>();
+    public UnityEvent OnEventAdvanceRandom = new UnityEvent();
 
     [SerializeField]
     private List<CombineThingEvent> _combineThingEvents;
@@ -190,6 +191,16 @@ public class Thing : MonoBehaviour, IPointerDownHandler
     public void EventMoneyProcess(int value)
     {
         OnEventEarnMoney.Invoke(value);
+    }
+
+    public void EventPlaySfx(AudioClip clip)
+    {
+        _sfxManager.Play(clip);
+    }
+
+    public void EventAdvanceRandom()
+    {
+        OnEventAdvanceRandom.Invoke();
     }
 
     public void SetLastCombinedEvent(Thing thing)

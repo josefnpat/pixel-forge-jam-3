@@ -17,6 +17,12 @@ public class ThingManager : MonoBehaviour
     private InitThingsScriptableObject _initThings;
 
     [SerializeField]
+    private InitThingsScriptableObject _initThingsOnInactive;
+    private float _inactiveDelta = 0;
+    private float _inactiveTime = 10;
+    private bool _inactiveTriggered = false;
+
+    [SerializeField]
     private GameObject _moneyPrefab;
 
     private List<Thing> _spawnedThings = new List<Thing>();
@@ -57,6 +63,18 @@ public class ThingManager : MonoBehaviour
             {
                 _randomThingSpawnDelta = Random.Range(_randomThingSpawnTimeMin, _randomThingSpawnTimeMax);
                 InitThingRandom();
+            }
+        }
+        if (!_inactiveTriggered)
+        {
+            _inactiveDelta += Time.deltaTime;
+            if (_inactiveDelta > _inactiveTime)
+            {
+                _inactiveTriggered = true;
+                foreach (InitThing initThing in _initThingsOnInactive.InitThings)
+                {
+                    InitThing(initThing);
+                }
             }
         }
     }
@@ -163,6 +181,7 @@ public class ThingManager : MonoBehaviour
             thing.OnEventGood.AddListener(EventGood);
             thing.OnEventBad.AddListener(EventBad);
             thing.OnEventEarnMoney.AddListener(EventEarnMoney);
+            thing.OnEventAdvanceRandom.AddListener(EventAdvanceRandom);
             thing.OnGrabStart.AddListener(GrabStart);
             thing.OnGrabEnd.AddListener(GrabEnd);
             thing.OnUse.AddListener(Use);
@@ -187,6 +206,11 @@ public class ThingManager : MonoBehaviour
         {
             InitThingFromOffscreen(_moneyPrefab);
         }
+    }
+
+    private void EventAdvanceRandom()
+    {
+        _randomThingSpawnDelta = 0.25f;
     }
 
     private void EventGood()
@@ -255,6 +279,7 @@ public class ThingManager : MonoBehaviour
 
     private void GrabStart(Thing thing)
     {
+        _inactiveDelta = 0;
         Debug.Log($"GrabStart: {thing}");
         thing.transform.rotation = Quaternion.Euler(0f,0f,0f);
         BumpSortOrder(thing);
@@ -268,6 +293,7 @@ public class ThingManager : MonoBehaviour
 
     private void GrabEnd(Thing thing)
     {
+        _inactiveDelta = 0;
         List<Thing> findThings = FindIntersectingThings(thing);
         Thing foundThing = GetClosestThing(findThings);
         if (foundThing != null)

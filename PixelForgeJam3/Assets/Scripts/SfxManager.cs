@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class SfxManager : MonoBehaviour
@@ -11,13 +12,17 @@ public class SfxManager : MonoBehaviour
 
     public void PlayGrab()
     {
-        _audioSource.clip = _grabAudioClip;
-        _audioSource.Play();
+        Play(_grabAudioClip);
     }
 
     public void PlayDrop()
     {
-        _audioSource.clip = _dropAudioClip;
+        Play(_dropAudioClip);
+    }
+
+    public void Play(AudioClip clip)
+    {
+        _audioSource.clip = clip;
         _audioSource.Play();
     }
 }

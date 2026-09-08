@@ -545,6 +545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ThingManager
   _poolPrefabs: []
   _initThings: {fileID: 11400000, guid: fe499de9c61824b7e91c61d8bccd362b, type: 2}
+  _initThingsOnInactive: {fileID: 11400000, guid: 4a8401648244145bd87c77e41c7cdb71, type: 2}
   _moneyPrefab: {fileID: 157950016704980927, guid: 998c7e3f3a54342f78fe36aeac5c2ab7, type: 3}
 --- !u!4 &1240047670
 Transform:
