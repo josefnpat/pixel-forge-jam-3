@@ -23,9 +23,9 @@ public class ThingManager : MonoBehaviour
     private List<Thing> _randomThings = new List<Thing>();
 
     private float _randomThingSpawnDelta = 1;
-    private float _randomThingSpawnMax = 4;
-    private float _randomThingSpawnTimeMin = 1;
-    private float _randomThingSpawnTimeMax = 3;
+    private float _randomThingSpawnMax = 8;
+    private float _randomThingSpawnTimeMin = 10;
+    private float _randomThingSpawnTimeMax = 20;
     private float _offscreenPositionY = 2f;
     private float _randomPositionXMin = -0.25f;
     private float _randomPositionXMax = 0.25f;
@@ -205,6 +205,7 @@ public class ThingManager : MonoBehaviour
     {
         if (!_poolPrefabs.Contains(prefab))
         {
+            Debug.Log($"Adding event {prefab.name} to pool.");
             _poolPrefabs.Add(prefab);
         }
     }

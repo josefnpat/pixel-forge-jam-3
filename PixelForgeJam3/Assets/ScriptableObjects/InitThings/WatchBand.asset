@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780b7384bc55f4d6f8750b74b9ef11c4, type: 3}
+  m_Name: WatchBand
+  m_EditorClassIdentifier: Assembly-CSharp::InitThingsScriptableObject
+  InitThings:
+  - Prefab: {fileID: 6377062227909524126, guid: 199366238f37c4641a843cd05fdc5851, type: 3}
+    Position: {x: 0, y: 0, z: 0}
+  - Prefab: {fileID: 2570841088071525788, guid: 060e87844247242bfa0d8a83411f4864, type: 3}
+    Position: {x: 0.1, y: 0, z: 0}
+  - Prefab: {fileID: 157950016704980927, guid: 85fa8be3d473347a7990d420e48506d2, type: 3}
+    Position: {x: -0.1, y: 0, z: 0}
