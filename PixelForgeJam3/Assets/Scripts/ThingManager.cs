@@ -32,8 +32,8 @@ public class ThingManager : MonoBehaviour
     private float _randomPositionYMin = -0.25f;
     private float _randomPositionYMax = 0.25f;
 
-    private float _gameTime;
-    public float GameTime { get { return _gameTime; } }
+    private double _gameTime;
+    public double GameTime { get { return _gameTime; } }
 
     public void Start()
     {
