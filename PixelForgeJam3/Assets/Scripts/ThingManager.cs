@@ -81,10 +81,10 @@ public class ThingManager : MonoBehaviour
 
     private void InitThingRandom()
     {
-        List<GameObject> thresholdPoolPrefabs = ThresholdPoolPrefabs();
-        if (thresholdPoolPrefabs.Count > 0)
+        List<GameObject> validPoolPrefabs = ValidPoolPrefabs();
+        if (validPoolPrefabs.Count > 0)
         {
-            Thing thing = InitThingFromOffscreen(thresholdPoolPrefabs[Random.Range(0,thresholdPoolPrefabs.Count)]);
+            Thing thing = InitThingFromOffscreen(validPoolPrefabs[Random.Range(0,validPoolPrefabs.Count)]);
             if (thing)
             {
                 _randomThings.Add(thing);
@@ -106,19 +106,19 @@ public class ThingManager : MonoBehaviour
         return null;
     }
 
-    private List<GameObject> ThresholdPoolPrefabs()
+    private List<GameObject> ValidPoolPrefabs()
     {
-        List<GameObject> thresholdPoolPrefabs = new List<GameObject>();
+        List<GameObject> validPoolPrefabs = new List<GameObject>();
         foreach (GameObject prefab in _poolPrefabs)
         {
             Thing thing = prefab.GetComponent<Thing>();
-            if (thing.WithinThreshold(_eventGood, _eventBad))
+            if (thing.WithinThreshold(_eventGood, _eventBad) && thing.CanInit(GetThingInitCount(prefab)))
             {
-                thresholdPoolPrefabs.Add(prefab);
+                validPoolPrefabs.Add(prefab);
             }
         }
-        Debug.Log($"There are {_poolPrefabs.Count} things in the pool and {thresholdPoolPrefabs.Count} of them are within threshold.");
-        return thresholdPoolPrefabs;
+        Debug.Log($"There are {_poolPrefabs.Count} things in the pool and {validPoolPrefabs.Count} of them are valid.");
+        return validPoolPrefabs;
     }
 
     private void SetRandomRotationFull(Thing thing)
@@ -157,16 +157,30 @@ public class ThingManager : MonoBehaviour
         return InitThing(prefab, true);
     }
 
-    private Thing InitThing(GameObject prefab, bool ignoreInitCount = false)
+    private int GetThingInitCount(GameObject prefab)
     {
         if (!_thingInitCounts.ContainsKey(prefab))
         {
             _thingInitCounts[prefab] = 0;
         }
-        int count = _thingInitCounts[prefab];
+        return _thingInitCounts[prefab];
+    }
+
+    private void IncrementThingInitCount(GameObject prefab)
+    {
+        if (!_thingInitCounts.ContainsKey(prefab))
+        {
+            _thingInitCounts[prefab] = 0;
+        }
+        _thingInitCounts[prefab]++;
+    }
+
+    private Thing InitThing(GameObject prefab, bool ignoreInitCount = false)
+    {
+        int count = GetThingInitCount(prefab);
         if (ignoreInitCount || prefab.GetComponent<Thing>().CanInit(count))
         {
-            _thingInitCounts[prefab]++;
+            IncrementThingInitCount(prefab);
 
             GameObject go = Instantiate(prefab);
             Thing thing = go.GetComponent<Thing>();
