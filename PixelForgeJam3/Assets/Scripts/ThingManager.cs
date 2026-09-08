@@ -24,8 +24,8 @@ public class ThingManager : MonoBehaviour
 
     private float _randomThingSpawnDelta = 1;
     private float _randomThingSpawnMax = 8;
-    private float _randomThingSpawnTimeMin = 10;
-    private float _randomThingSpawnTimeMax = 20;
+    private float _randomThingSpawnTimeMin = 5;
+    private float _randomThingSpawnTimeMax = 10;
     private float _offscreenPositionY = 2f;
     private float _randomPositionXMin = -0.25f;
     private float _randomPositionXMax = 0.25f;
