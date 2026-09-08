@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: da2c1f7b33c404d8f8306a66ce74ae15, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e1254661426fe4416902cc7d4a687657, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -182,46 +182,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Prefab: {fileID: 157950016704980927, guid: 549f6c346c2a245df9d00803d5c3a4d0, type: 3}
-    UnityEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7876714343050199209}
-          m_TargetAssemblyTypeName: Thing, Assembly-CSharp
-          m_MethodName: EventRemove
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 7876714343050199209}
-          m_TargetAssemblyTypeName: Thing, Assembly-CSharp
-          m_MethodName: EventMoneyProcess
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 7876714343050199209}
-          m_TargetAssemblyTypeName: Thing, Assembly-CSharp
-          m_MethodName: EventGood
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   _useThingEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -284,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable2D
   _spriteRenderer: {fileID: 8320095696431374714}
-  _highlightSprite: {fileID: 21300000, guid: 0eb7f016a22ac41ce83816d13b167a6c, type: 3}
+  _highlightSprite: {fileID: 21300000, guid: eba010a1c844747dbba896c339132234, type: 3}
   OnGrabStart:
     m_PersistentCalls:
       m_Calls: []
@@ -306,7 +266,8 @@ MonoBehaviour:
   _hourTransform: {fileID: 8075214467447693035}
   _minuteTransform: {fileID: 1172740153706724560}
   _secondTransform: {fileID: 7046965699189000575}
-  _timeSet: 1
+  _timeNeedsToBeSet: 0
+  _deadBattery: 0
 --- !u!114 &9137249867451558142
 MonoBehaviour:
   m_ObjectHideFlags: 0

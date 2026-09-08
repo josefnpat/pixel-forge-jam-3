@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WatchHands : MonoBehaviour
+public class WatchData : MonoBehaviour
 {
 
     [SerializeField]
@@ -15,14 +15,13 @@ public class WatchHands : MonoBehaviour
     private bool _deadBattery = false;
 
     private ThingManager _thingManager;
-    private Thing _thing;
     private double _offsetTime;
+    private double _currentTime;
 
     public void Start()
     {
         _thingManager = FindFirstObjectByType<ThingManager>();
-        _thing = GetComponent<Thing>();
-        _thing.OnUse.AddListener(UseWatch);
+        _currentTime = _thingManager.GameTime;
         if (_timeNeedsToBeSet)
         {
             _offsetTime = UnityEngine.Random.Range(0,12*60*60);
@@ -31,7 +30,11 @@ public class WatchHands : MonoBehaviour
 
     public void Update()
     {
-        double watchTime = _thingManager.GameTime + _offsetTime;
+        if (!_deadBattery)
+        {
+            _currentTime = _thingManager.GameTime;
+        }
+        double watchTime = _currentTime + _offsetTime;
         System.DateTimeOffset dateTimeOffset = System.DateTimeOffset.FromUnixTimeSeconds((int)watchTime);
         int second = dateTimeOffset.Second;
         int minute = dateTimeOffset.Minute;
@@ -56,11 +59,6 @@ public class WatchHands : MonoBehaviour
             -(float)hour12 / 12 * 360f
         );
 
-    }
-
-    private void UseWatch(Thing thing)
-    {
-        _offsetTime = 0;
     }
 
 }

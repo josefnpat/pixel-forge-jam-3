@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 157950016704980927, guid: 549f6c346c2a245df9d00803d5c3a4d0, type: 3}
     - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
       propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
       propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -239,19 +239,19 @@ PrefabInstance:
     - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
       propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 567613421009424043, guid: 0ca189a0207724a31be59c6d36c308f1, type: 3}
+      objectReference: {fileID: 5565798267017388852, guid: a84a36d390e5b472b8f53b33596962cd, type: 3}
     - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
       propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 567613421009424043, guid: d16d6a2a5957b45128029055f4eaa985, type: 3}
+      objectReference: {fileID: 157950016704980927, guid: ad3140924783347bba94f56044dfeff0, type: 3}
     - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
       propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 567613421009424043, guid: fb82980dd24c246cc811bb577f70288d, type: 3}
+      objectReference: {fileID: 5279508500076405310, guid: 4539162ed48cd4cff848449e7fa2249a, type: 3}
     - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
       propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[6].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 157950016704980927, guid: ad3140924783347bba94f56044dfeff0, type: 3}
+      objectReference: {fileID: 5279508500076405310, guid: 4539162ed48cd4cff848449e7fa2249a, type: 3}
     - target: {fileID: 7876714343050199209, guid: 70e36f66ae2c64e2ea362cf642c1beeb, type: 3}
       propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[7].m_Arguments.m_ObjectArgument
       value: 
