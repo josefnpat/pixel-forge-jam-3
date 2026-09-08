@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -11,6 +12,8 @@ public class LineManager : MonoBehaviour
     private AudioSource _audioSource;
     private List<Line> _lines;
     private GameObject _linePrefab;
+    private bool _loop;
+
     public GameObject LinePrefab { get { return _linePrefab; } }
     private Line _currentLine;
     private float _delta;
@@ -22,23 +25,44 @@ public class LineManager : MonoBehaviour
 
     public void Update()
     {
-        if (_currentLine == null)
-        {
-            if (_lines != null && _lines.Count > 0)
-            {
-                Line line = _lines[0];
-                _lines.RemoveAt(0);
-                Play(line);
-            }
-        }
-        else
+        if (_currentLine != null)
         {
             _delta += Time.deltaTime;
             if (_delta > _currentLine.AudioClip.length)
             {
                 Stop();
+                _currentLine = GetNextLine();
+                if (_currentLine != null)
+                {
+                    Play(_currentLine);
+                }
             }
         }
+    }
+
+    private Line GetNextLine()
+    {
+        if (_currentLine == null)
+        {
+            return _lines[0];
+        }
+        bool useNext = false;
+        foreach (Line line in _lines)
+        {
+            if (useNext)
+            {
+                return line;
+            }
+            if (line == _currentLine)
+            {
+                useNext = true;
+            }
+        }
+        if (_loop)
+        {
+            return _lines[0];
+        }
+        return null;
     }
 
     private void Play(Line line)
@@ -53,7 +77,9 @@ public class LineManager : MonoBehaviour
     public void Play(LinesScriptableObjectScript lines, GameObject prefab)
     {
         _lines = lines.Lines.ToList();
+        Play(GetNextLine());
         _linePrefab = prefab;
+        _loop = lines.Loop;
     }
 
     public void Stop()
@@ -61,7 +87,6 @@ public class LineManager : MonoBehaviour
         _audioSource.Stop();
         _audioSource.clip = null;
         _text.text = string.Empty;
-        _currentLine = null;
     }
 
 }

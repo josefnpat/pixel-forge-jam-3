@@ -227,8 +227,8 @@ public class Thing : MonoBehaviour, IPointerDownHandler
 
     public void EventMusicPlay()
     {
-        LinesScriptableObjectScript lines = GetComponent<MusicData>().Lines;
-        _lineManager.Play(lines, this.Prefab);
+        MusicData musicData = GetComponent<MusicData>();
+        _lineManager.Play(musicData.Lines, this.Prefab);
     }
 
     public void EventMusicStop()
