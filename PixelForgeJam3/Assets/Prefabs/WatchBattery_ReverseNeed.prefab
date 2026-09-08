@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: d38acd17a3c1a463791cc3e566b18b7a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 577125464939e41ec9de031813317d90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable2D
   _spriteRenderer: {fileID: 5974792472373535577}
-  _highlightSprite: {fileID: 21300000, guid: de5684dbfa35d49a19ac2704d74d21ed, type: 3}
+  _highlightSprite: {fileID: 21300000, guid: 41926ee2716624774bc5c8c12d05dd23, type: 3}
   OnGrabStart:
     m_PersistentCalls:
       m_Calls: []
