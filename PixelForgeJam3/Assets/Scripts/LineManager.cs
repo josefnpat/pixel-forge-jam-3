@@ -30,11 +30,11 @@ public class LineManager : MonoBehaviour
             _delta += Time.deltaTime;
             if (_delta > _currentLine.AudioClip.length)
             {
+                Line next = GetNextLine();
                 Stop();
-                _currentLine = GetNextLine();
-                if (_currentLine != null)
+                if (next != null)
                 {
-                    Play(_currentLine);
+                    Play(next);
                 }
             }
         }
@@ -87,6 +87,8 @@ public class LineManager : MonoBehaviour
         _audioSource.Stop();
         _audioSource.clip = null;
         _text.text = string.Empty;
+        _currentLine = null;
+        _delta = 0;
     }
 
 }
