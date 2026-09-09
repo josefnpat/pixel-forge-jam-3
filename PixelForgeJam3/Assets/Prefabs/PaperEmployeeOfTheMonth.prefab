@@ -52,9 +52,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1936020899811136848, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: m_Size.y
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936020899811136848, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936020899811136848, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936020899811136848, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029084151521461276, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: _highlightSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 35b76ade00178ed43b003833aa00f339, type: 3}
     - target: {fileID: 5535056160492224628, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
       propertyPath: m_text
       value: Employee of the Month Award
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535056160492224628, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: m_margin.x
+      value: 0.30870903
       objectReference: {fileID: 0}
     - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
       propertyPath: _maxInitCount
@@ -63,6 +87,22 @@ PrefabInstance:
     - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
       propertyPath: _thresholdGoodMin
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8320095696431374714, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: m_Size.x
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 8320095696431374714, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: m_Size.y
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8320095696431374714, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d8e4797bf5a450c42b9a7ab553305b80, type: 3}
+    - target: {fileID: 8320095696431374714, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
