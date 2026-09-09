@@ -41,6 +41,8 @@ public class ThingManager : MonoBehaviour
     private float _randomPositionYMax = 0.25f;
 
     private double _gameTime;
+    private Thing _lastThingInit;
+
     public double GameTime { get { return _gameTime; } }
 
     public void Start()
@@ -126,6 +128,13 @@ public class ThingManager : MonoBehaviour
     private List<GameObject> ValidPoolPrefabs()
     {
         List<GameObject> validPoolPrefabs = new List<GameObject>();
+        if (_lastThingInit && validPoolPrefabs.Count > 1)
+        {
+            if (validPoolPrefabs.Contains(_lastThingInit.Prefab))
+            {
+                validPoolPrefabs.Remove(_lastThingInit.Prefab);
+            }
+        }
         foreach (GameObject prefab in _poolPrefabs)
         {
             Thing thing = prefab.GetComponent<Thing>();
@@ -220,6 +229,8 @@ public class ThingManager : MonoBehaviour
             _spawnedThings.Add(thing);
             BumpSortOrder(thing);
             
+            _lastThingInit = thing;
+
             return thing;
         }
 
