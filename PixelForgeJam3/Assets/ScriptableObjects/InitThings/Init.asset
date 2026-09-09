@@ -17,3 +17,5 @@ MonoBehaviour:
     Position: {x: 0.5, y: -0.5, z: 0}
   - Prefab: {fileID: 1203440361082299890, guid: f601aca08f2434b2394b03e66a71b158, type: 3}
     Position: {x: 0, y: 0, z: 0}
+  - Prefab: {fileID: 6442033226499542887, guid: 0ba0f454cbf14424baa22f5e71c04ede, type: 3}
+    Position: {x: 1, y: 0.5, z: 0}
