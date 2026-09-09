@@ -159,9 +159,25 @@ public class Thing : MonoBehaviour, IPointerDownHandler
         OnEventGood.Invoke();
     }
 
+    public void EventGood(int count = 1)
+    {
+        for (int i=0; i<count; i++)
+        {
+            OnEventGood.Invoke();
+        }
+    }
+
     public void EventBad()
     {
         OnEventBad.Invoke();
+    }
+
+    public void EventBad(int count = 1)
+    {
+        for (int i=0; i<count; i++)
+        {
+            OnEventBad.Invoke();
+        }
     }
 
     public void EventSurveyProcess(bool markedIsGood)
