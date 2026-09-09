@@ -123,7 +123,10 @@ public class Thing : MonoBehaviour, IPointerDownHandler
     {
         foreach (CombineThingEvent combineThingEvent in _combineThingEvents)
         {
-            if (combineThingEvent.Prefab == prefab)
+            // If you have an object reference it's own prefab, it accesses the actual game object,
+            // which by default has "(Clone)" appended to it.
+            string hackName = combineThingEvent.Prefab.name.Replace("(Clone)","");
+            if (hackName == prefab.name)
             {
                 return combineThingEvent;
             }

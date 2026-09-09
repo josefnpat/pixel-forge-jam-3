@@ -33,6 +33,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7876714343050199209, guid: d8bf492c318cf43d88c9c43cfbd14557, type: 3}
+      propertyPath: _thresholdBadMin
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: d8bf492c318cf43d88c9c43cfbd14557, type: 3}
       propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 157950016704980927, guid: a76125e29f548422fb89598f765a695c, type: 3}
