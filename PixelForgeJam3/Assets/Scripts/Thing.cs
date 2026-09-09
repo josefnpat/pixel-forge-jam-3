@@ -2,9 +2,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class Thing : MonoBehaviour, IPointerDownHandler
 {
+    [SerializeField]
+    private bool _isEndBox;
+    public bool IsEndBox { get { return _isEndBox; } }
     [SerializeField]
     private int _maxInitCount = int.MaxValue;
     [SerializeField]
@@ -134,6 +138,11 @@ public class Thing : MonoBehaviour, IPointerDownHandler
         return null;
     }
 
+    public void AddCombineThingEvent(CombineThingEvent combineThingEvent)
+    {
+        _combineThingEvents.Add(combineThingEvent);
+    }
+
     public UnityEvent GetUseThingEvent()
     {
         return _useThingEvent;
@@ -220,6 +229,11 @@ public class Thing : MonoBehaviour, IPointerDownHandler
     public void EventAdvanceRandom()
     {
         OnEventAdvanceRandom.Invoke();
+    }
+
+    public void EventRestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void SetLastCombinedEvent(Thing thing)

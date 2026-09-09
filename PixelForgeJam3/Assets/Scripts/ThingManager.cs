@@ -19,6 +19,8 @@ public class ThingManager : MonoBehaviour
     private Dictionary<GameObject, int> _thingInitCounts = new Dictionary<GameObject, int>();
 
     [SerializeField]
+    private List<GameObject> _endBoxPrefabs;
+    [SerializeField]
     private List<GameObject> _poolPrefabs;
 
     [SerializeField]
@@ -269,7 +271,19 @@ public class ThingManager : MonoBehaviour
             GameObject go = Instantiate(prefab);
             Thing thing = go.GetComponent<Thing>();
             thing.Prefab = prefab;
-            
+
+            if (!thing.IsEndBox)
+            {
+                foreach (GameObject endBoxPrefab in _endBoxPrefabs)
+                {
+                    CombineThingEvent combineThingEvent = new CombineThingEvent();
+                    combineThingEvent.Prefab = endBoxPrefab;
+                    combineThingEvent.UnityEvent = new UnityEngine.Events.UnityEvent();
+                    combineThingEvent.UnityEvent.AddListener(thing.EventRemove);
+                    thing.AddCombineThingEvent(combineThingEvent);
+                }
+            }
+
             thing.OnEventAddToPool.AddListener(EventAddToPool);
             thing.OnEventCreateThing.AddListener(EventCreateThing);
             thing.OnEventCreateCassete.AddListener(EventCreateCassete);

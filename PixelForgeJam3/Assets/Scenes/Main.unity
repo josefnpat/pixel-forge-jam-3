@@ -543,6 +543,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497043de4a75e4fc9a5c3b5b9f4bda85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ThingManager
+  debugAddCount: 10
+  debugAddGood: 0
+  debugAddBad: 0
+  _endBoxPrefabs:
+  - {fileID: 157950016704980927, guid: 946bb38807827456d9a1a01f8ee0c7a1, type: 3}
   _poolPrefabs: []
   _initThings: {fileID: 11400000, guid: fe499de9c61824b7e91c61d8bccd362b, type: 2}
   _gameOverBothThings: {fileID: 11400000, guid: 23001b1fa9e4449c48c654bc6be26fe2, type: 2}
