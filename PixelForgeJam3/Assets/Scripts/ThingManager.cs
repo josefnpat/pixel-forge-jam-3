@@ -27,6 +27,8 @@ public class ThingManager : MonoBehaviour
 
     private List<Thing> _spawnedThings = new List<Thing>();
     private List<Thing> _randomThings = new List<Thing>();
+    private Thing _grabbedThing;
+    private Thing _grabbedIsHighlightingThing;
 
     private float _randomThingSpawnDelta = 1;
     private float _randomThingSpawnMax = 8;
@@ -75,6 +77,21 @@ public class ThingManager : MonoBehaviour
                 {
                     InitThing(initThing);
                 }
+            }
+        }
+
+        if (_grabbedIsHighlightingThing != null)
+        {
+            _grabbedIsHighlightingThing.SetHighlight(false);
+        }
+        if (_grabbedThing != null)
+        {
+            List<Thing> intersectingThings = FindIntersectingThings(_grabbedThing);
+            Thing closestIntersectingThing = GetClosestThing(intersectingThings);
+            if (closestIntersectingThing && _grabbedThing.GetCombineThingEvent(closestIntersectingThing.Prefab) != null)
+            {
+                _grabbedIsHighlightingThing = closestIntersectingThing;
+                _grabbedIsHighlightingThing.SetHighlight(true);
             }
         }
     }
@@ -293,6 +310,7 @@ public class ThingManager : MonoBehaviour
 
     private void GrabStart(Thing thing)
     {
+        _grabbedThing = thing;
         _inactiveDelta = 0;
         Debug.Log($"GrabStart: {thing}");
         thing.transform.rotation = Quaternion.Euler(0f,0f,0f);
@@ -307,6 +325,7 @@ public class ThingManager : MonoBehaviour
 
     private void GrabEnd(Thing thing)
     {
+        _grabbedThing = null;
         _inactiveDelta = 0;
         List<Thing> findThings = FindIntersectingThings(thing);
         Thing foundThing = GetClosestThing(findThings);

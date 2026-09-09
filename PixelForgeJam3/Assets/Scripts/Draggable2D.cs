@@ -60,4 +60,8 @@ public class Draggable2D : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         return _spriteRenderer.sortingOrder;
     }
 
+    public void SetHighlight(bool value)
+    {
+        _spriteRenderer.sprite = value ? _highlightSprite : _originalSprite;
+    }
 }

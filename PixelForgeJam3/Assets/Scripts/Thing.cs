@@ -256,4 +256,9 @@ public class Thing : MonoBehaviour, IPointerDownHandler
         _tweenTo = target;
         _tweenDelta = 0f;
     }
+
+    public void SetHighlight(bool value)
+    {
+        _draggable2D.SetHighlight(value);
+    }
 }
