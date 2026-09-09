@@ -10,18 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 780b7384bc55f4d6f8750b74b9ef11c4, type: 3}
-  m_Name: Credits
+  m_Name: GameOverBad
   m_EditorClassIdentifier: Assembly-CSharp::InitThingsScriptableObject
   InitThings:
+  - Prefab: {fileID: 157950016704980927, guid: 946bb38807827456d9a1a01f8ee0c7a1, type: 3}
+    Position: {x: 0, y: 0, z: 0}
   - Prefab: {fileID: 5071777290953640616, guid: d3920db6a37594cf8ad1d0377abec667, type: 3}
     Position: {x: -0.5, y: 0.5, z: 0}
   - Prefab: {fileID: 5071777290953640616, guid: 6dd74d035281645e6a71b436379052d1, type: 3}
     Position: {x: 0.5, y: 0.5, z: 0}
-  - Prefab: {fileID: 2426678915443273351, guid: 239fb22cf9a8943ebb2f47c577b4cb26, type: 3}
-    Position: {x: -0.45, y: -0.5, z: 0}
-  - Prefab: {fileID: 2426678915443273351, guid: eb2ed170c7f874e6e8faafc11d017459, type: 3}
-    Position: {x: -0.55, y: -0.5, z: 0}
-  - Prefab: {fileID: 157950016704980927, guid: 7a852d1aa5dc9405f9b7c38f38590d50, type: 3}
-    Position: {x: -1, y: -0.5, z: 0}
-  - Prefab: {fileID: 157950016704980927, guid: 2496e84271ecf4c28a5bc32d854eea71, type: 3}
-    Position: {x: 1, y: -0.5, z: 0}
+  - Prefab: {fileID: 9113249897976745566, guid: 4b659e3dbd0bb469f95f7fd9f5268a7e, type: 3}
+    Position: {x: 0, y: -0.5, z: 0}

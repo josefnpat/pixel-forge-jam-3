@@ -4,9 +4,17 @@ using UnityEngine.InputSystem;
 
 public class ThingManager : MonoBehaviour
 {
+    public int debugAddCount = 10;
+    public bool debugAddGood = false;
+    public bool debugAddBad = false;
+
     private int _eventGood = 0;
     private int _eventBad = 0;
     private int _currentSortingOrder = 0;
+
+    private int _eventGoodGameOver = 50;
+    private int _eventBadGameOver = 50;
+    private int _eventGameOverThreshold = 60;
 
     private Dictionary<GameObject, int> _thingInitCounts = new Dictionary<GameObject, int>();
 
@@ -15,6 +23,13 @@ public class ThingManager : MonoBehaviour
 
     [SerializeField]
     private InitThingsScriptableObject _initThings;
+    [SerializeField]
+    private InitThingsScriptableObject _gameOverBothThings;
+    [SerializeField]
+    private InitThingsScriptableObject _gameOverGoodThings;
+    [SerializeField]
+    private InitThingsScriptableObject _gameOverBadThings;
+    
 
     [SerializeField]
     private InitThingsScriptableObject _initThingsOnInactive;
@@ -42,6 +57,7 @@ public class ThingManager : MonoBehaviour
 
     private double _gameTime;
     private Thing _lastThingInit;
+    private bool _gameOver = false;
 
     public double GameTime { get { return _gameTime; } }
 
@@ -51,16 +67,26 @@ public class ThingManager : MonoBehaviour
         long utcUnixSeconds = utcNow.ToUnixTimeSeconds();
         long offsetSeconds = (long)System.TimeZoneInfo.Local.GetUtcOffset(utcNow).TotalSeconds;
         _gameTime = utcUnixSeconds + offsetSeconds;
-        foreach (InitThing initThing in _initThings.InitThings)
-        {
-            InitThing(initThing);
-        }
+        InitThings(_initThings);
     }
 
     public void Update()
     {
+        if (debugAddGood)
+        {
+            debugAddGood = false;
+            EventGood(debugAddCount);
+        }
+        if (debugAddBad)
+        {
+            debugAddBad = false;
+            EventBad(debugAddCount);
+        }
         _gameTime += Time.deltaTime;
-        _randomThingSpawnDelta -= Time.deltaTime;
+        if (!_gameOver)
+        {
+            _randomThingSpawnDelta -= Time.deltaTime;
+        }
         if (_randomThingSpawnDelta <= 0)
         {
             if (_randomThings.Count < _randomThingSpawnMax)
@@ -95,6 +121,38 @@ public class ThingManager : MonoBehaviour
                 _grabbedIsHighlightingThing = closestIntersectingThing;
                 _grabbedIsHighlightingThing.SetHighlight(true);
             }
+        }
+
+        if (!_gameOver && (_eventGood > _eventGameOverThreshold || _eventBad > _eventGameOverThreshold))
+        {
+            _gameOver = true;
+            bool goodEnd = _eventGood > _eventGoodGameOver;
+            bool badEnd = _eventBad > _eventBadGameOver;
+            if (goodEnd && badEnd)
+            {
+                InitThings(_gameOverBothThings);
+            }
+            else if (goodEnd)
+            {
+                InitThings(_gameOverGoodThings);
+            }
+            else if (badEnd)
+            {
+                InitThings(_gameOverBadThings);
+            }
+            else
+            {
+                Debug.LogWarning("You ended the game, but had no end conditions.");
+            }
+        }
+
+    }
+
+    private void InitThings(InitThingsScriptableObject things)
+    {
+        foreach (InitThing initThing in things.InitThings)
+        {
+            InitThing(initThing);
         }
     }
 
@@ -143,7 +201,7 @@ public class ThingManager : MonoBehaviour
                 validPoolPrefabs.Add(prefab);
             }
         }
-        Debug.Log($"There are {_poolPrefabs.Count} things in the pool and {validPoolPrefabs.Count} of them are valid.");
+        Debug.Log($"There are {_poolPrefabs.Count} initThing in the pool and {validPoolPrefabs.Count} of them are valid.");
         return validPoolPrefabs;
     }
 
@@ -257,13 +315,23 @@ public class ThingManager : MonoBehaviour
 
     private void EventGood()
     {
-        _eventGood++;
+        EventGood(1);
+    }
+
+    private void EventGood(int count)
+    {
+        _eventGood+=count;
         Debug.Log($"Good++: {_eventGood}");
     }
 
     private void EventBad()
     {
-        _eventBad++;
+        EventBad(1);
+    }
+
+    private void EventBad(int count)
+    {
+        _eventBad+=count;
         Debug.Log($"Bad++: {_eventBad}");
     }
 

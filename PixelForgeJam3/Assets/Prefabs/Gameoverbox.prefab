@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8320095696431374714}
   - component: {fileID: 7876714343050199209}
   - component: {fileID: 1936020899811136848}
-  - component: {fileID: 3029084151521461276}
+  - component: {fileID: 4674551475325535156}
   m_Layer: 0
-  m_Name: Bell
+  m_Name: Gameoverbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,12 +84,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 5c355ae34cb6f4ef780b0cf60f1d9d0f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca87fe3b399c647ad81b78b3b8af5ee8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 0.16, y: 0.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540114551caaf43fbbecb8fd6e4e924e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Thing
-  _maxInitCount: 1
+  _maxInitCount: 2147483647
   _thresholdGoodMin: 0
   _thresholdGoodMax: 2147483647
   _thresholdBadMin: 0
@@ -119,31 +119,7 @@ MonoBehaviour:
       m_Calls: []
   OnUse:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7876714343050199209}
-        m_TargetAssemblyTypeName: Thing, Assembly-CSharp
-        m_MethodName: EventPlaySfx
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: e993e7f26507c45f588ff1224c1e0a31, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7876714343050199209}
-        m_TargetAssemblyTypeName: Thing, Assembly-CSharp
-        m_MethodName: EventAdvanceRandom
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnSpriteRendererSortingOrder:
     m_PersistentCalls:
       m_Calls: []
@@ -219,15 +195,15 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 1.28, y: 0.96}
+    newSize: {x: 0.16, y: 0.18}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.32, y: 0.3}
+  m_Size: {x: 1.28, y: 0.96}
   m_EdgeRadius: 0
---- !u!114 &3029084151521461276
+--- !u!114 &4674551475325535156
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Draggable2D
   _spriteRenderer: {fileID: 8320095696431374714}
-  _highlightSprite: {fileID: 21300000, guid: e6e2a4ed9a81045278a434d45a725cda, type: 3}
+  _highlightSprite: {fileID: 21300000, guid: 4853c84787e81438bb9c594561bebba2, type: 3}
   OnGrabStart:
     m_PersistentCalls:
       m_Calls: []

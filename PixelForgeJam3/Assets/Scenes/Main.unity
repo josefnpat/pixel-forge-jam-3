@@ -545,6 +545,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ThingManager
   _poolPrefabs: []
   _initThings: {fileID: 11400000, guid: fe499de9c61824b7e91c61d8bccd362b, type: 2}
+  _gameOverBothThings: {fileID: 11400000, guid: 23001b1fa9e4449c48c654bc6be26fe2, type: 2}
+  _gameOverGoodThings: {fileID: 11400000, guid: 78dbde790e8004f36a770295bb05a0d6, type: 2}
+  _gameOverBadThings: {fileID: 11400000, guid: 838a46b51074749fb9fcd7b33e3ad8c3, type: 2}
   _initThingsOnInactive: {fileID: 11400000, guid: 4a8401648244145bd87c77e41c7cdb71, type: 2}
   _moneyPrefab: {fileID: 157950016704980927, guid: 998c7e3f3a54342f78fe36aeac5c2ab7, type: 3}
 --- !u!4 &1240047670
