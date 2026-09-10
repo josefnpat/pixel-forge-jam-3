@@ -7,6 +7,12 @@ using UnityEngine.SceneManagement;
 public class Thing : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField]
+    private AudioClip _customGrabStartSfx;
+    [SerializeField]
+    private AudioClip _customGrabEndSfx;
+    [SerializeField]
+    private AudioClip _customUseSfx;
+    [SerializeField]
     private bool _isEndBox;
     public bool IsEndBox { get { return _isEndBox; } }
     [SerializeField]
@@ -97,18 +103,36 @@ public class Thing : MonoBehaviour, IPointerDownHandler
 
     private void GrabStart()
     {
-        _sfxManager.PlayGrab();
+        if (_customGrabStartSfx)
+        {
+            _sfxManager.Play(_customGrabStartSfx);
+        }
+        else
+        {
+            _sfxManager.PlayGrab();
+        }
         OnGrabStart.Invoke(this);
     }
 
     private void GrabEnd()
     {
-        _sfxManager.PlayDrop();
+        if (_customGrabEndSfx)
+        {
+            _sfxManager.Play(_customGrabEndSfx);
+        }
+        else
+        {
+            _sfxManager.PlayDrop();
+        }
         OnGrabEnd.Invoke(this);
     }
 
     private void Use()
     {
+        if (_customUseSfx)
+        {
+            _sfxManager.Play(_customUseSfx);
+        }
         OnUse.Invoke(this);
     }
 

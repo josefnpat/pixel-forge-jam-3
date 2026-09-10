@@ -106,6 +106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540114551caaf43fbbecb8fd6e4e924e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Thing
+  _customGrabStartSfx: {fileID: 0}
+  _customGrabEndSfx: {fileID: 8300000, guid: 622f851f847b70f48abe799c4c23a7b5, type: 3}
+  _customUseSfx: {fileID: 0}
+  _isEndBox: 0
   _maxInitCount: 1
   _thresholdGoodMin: 0
   _thresholdGoodMax: 2147483647
@@ -148,6 +152,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnEventEarnMoney:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventAdvanceRandom:
     m_PersistentCalls:
       m_Calls: []
   _combineThingEvents:
@@ -198,6 +205,18 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 2570841088071525788, guid: 2d946190553d54d1da7b2313e4eb8cc2, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 7876714343050199209}
+          m_TargetAssemblyTypeName: Thing, Assembly-CSharp
+          m_MethodName: EventPlaySfx
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: afb0eb20509d6924c9bfecd3c0ec357c, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 

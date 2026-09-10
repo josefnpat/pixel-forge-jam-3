@@ -106,16 +106,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540114551caaf43fbbecb8fd6e4e924e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Thing
+  _customGrabStartSfx: {fileID: 0}
+  _customGrabEndSfx: {fileID: 8300000, guid: 9cc7625afc49a7a45a2429b1e2602b61, type: 3}
+  _customUseSfx: {fileID: 0}
+  _isEndBox: 0
+  _maxInitCount: 2147483647
+  _thresholdGoodMin: 0
+  _thresholdGoodMax: 2147483647
+  _thresholdBadMin: 0
+  _thresholdBadMax: 2147483647
   OnGrabStart:
     m_PersistentCalls:
       m_Calls: []
   OnGrabEnd:
     m_PersistentCalls:
       m_Calls: []
+  OnUse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSpriteRendererSortingOrder:
+    m_PersistentCalls:
+      m_Calls: []
   OnEventRemove:
     m_PersistentCalls:
       m_Calls: []
+  OnEventAddToPool:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventCreateThing:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventCreateCassete:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventCreateThings:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventInit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventGood:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventBad:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventEarnMoney:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventAdvanceRandom:
+    m_PersistentCalls:
+      m_Calls: []
   _combineThingEvents: []
+  _useThingEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &1936020899811136848
 BoxCollider2D:
   m_ObjectHideFlags: 0

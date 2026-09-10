@@ -279,14 +279,22 @@ PrefabInstance:
       objectReference: {fileID: 157950016704980927, guid: 549f6c346c2a245df9d00803d5c3a4d0, type: 3}
     - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
       propertyPath: _combineThingEvents.Array.data[1].UnityEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
       propertyPath: _combineThingEvents.Array.data[1].UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: _combineThingEvents.Array.data[1].UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
       propertyPath: _combineThingEvents.Array.data[1].UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3897901025918986353}
+    - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: _combineThingEvents.Array.data[1].UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 3897901025918986353}
     - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
@@ -294,16 +302,36 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: _combineThingEvents.Array.data[1].UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
       propertyPath: _combineThingEvents.Array.data[1].UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EventRemove
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: _combineThingEvents.Array.data[1].UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: EventPlaySfx
       objectReference: {fileID: 0}
     - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
       propertyPath: _combineThingEvents.Array.data[1].UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Thing, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: _combineThingEvents.Array.data[1].UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Thing, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: _combineThingEvents.Array.data[1].UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: bd1b945dd1d1f44469e6f6e89a371edf, type: 3}
+    - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
       propertyPath: _combineThingEvents.Array.data[1].UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: _combineThingEvents.Array.data[1].UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.AudioClip, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8320095696431374714, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
       propertyPath: m_Sprite

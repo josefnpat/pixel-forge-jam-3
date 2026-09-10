@@ -107,6 +107,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540114551caaf43fbbecb8fd6e4e924e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Thing
+  _customGrabStartSfx: {fileID: 0}
+  _customGrabEndSfx: {fileID: 0}
+  _customUseSfx: {fileID: 0}
+  _isEndBox: 0
+  _maxInitCount: 2147483647
+  _thresholdGoodMin: 0
+  _thresholdGoodMax: 2147483647
+  _thresholdBadMin: 0
+  _thresholdBadMax: 2147483647
   OnGrabStart:
     m_PersistentCalls:
       m_Calls: []
@@ -128,10 +137,25 @@ MonoBehaviour:
   OnEventCreateThing:
     m_PersistentCalls:
       m_Calls: []
+  OnEventCreateCassete:
+    m_PersistentCalls:
+      m_Calls: []
   OnEventCreateThings:
     m_PersistentCalls:
       m_Calls: []
   OnEventInit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventGood:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventBad:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventEarnMoney:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEventAdvanceRandom:
     m_PersistentCalls:
       m_Calls: []
   _combineThingEvents:
@@ -187,6 +211,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7876714343050199209}
+          m_TargetAssemblyTypeName: Thing, Assembly-CSharp
+          m_MethodName: EventPlaySfx
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 775a8cef0b14a4c478b367a7eb9a23a1, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - Prefab: {fileID: 157950016704980927, guid: 2496e84271ecf4c28a5bc32d854eea71, type: 3}
     UnityEvent:
       m_PersistentCalls:
@@ -198,6 +234,18 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 7876714343050199209}
+          m_TargetAssemblyTypeName: Thing, Assembly-CSharp
+          m_MethodName: EventPlaySfx
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: c4323a71658e4834482e664b38e558b4, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 

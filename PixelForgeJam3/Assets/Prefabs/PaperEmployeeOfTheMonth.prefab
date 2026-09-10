@@ -90,10 +90,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
       propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
       propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
@@ -101,7 +105,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3359320992011771171}
     - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 3359320992011771171}
+    - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
       propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
@@ -109,7 +121,15 @@ PrefabInstance:
       value: EventInit
       objectReference: {fileID: 0}
     - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: EventPlaySfx
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
       propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Thing, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: Thing, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
@@ -117,8 +137,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 05b9f01dc2cb34afea50fed6bacc794a, type: 2}
     - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: c4323a71658e4834482e664b38e558b4, type: 3}
+    - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
       propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: InitThingsScriptableObject, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876714343050199209, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
+      propertyPath: _combineThingEvents.Array.data[0].UnityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.AudioClip, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8320095696431374714, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
       propertyPath: m_Size.x

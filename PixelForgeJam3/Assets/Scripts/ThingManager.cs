@@ -60,11 +60,13 @@ public class ThingManager : MonoBehaviour
     private double _gameTime;
     private Thing _lastThingInit;
     private bool _gameOver = false;
+    private SfxManager _sfxManager;
 
     public double GameTime { get { return _gameTime; } }
 
     public void Start()
     {
+        _sfxManager = FindFirstObjectByType<SfxManager>();
         System.DateTimeOffset utcNow = System.DateTimeOffset.UtcNow;
         long utcUnixSeconds = utcNow.ToUnixTimeSeconds();
         long offsetSeconds = (long)System.TimeZoneInfo.Local.GetUtcOffset(utcNow).TotalSeconds;
@@ -160,6 +162,7 @@ public class ThingManager : MonoBehaviour
 
     private void InitThingRandom()
     {
+        _sfxManager.PlayInitThingRandom();
         List<GameObject> validPoolPrefabs = ValidPoolPrefabs();
         if (validPoolPrefabs.Count > 0)
         {
