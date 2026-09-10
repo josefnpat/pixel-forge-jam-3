@@ -35,7 +35,20 @@ public class Draggable2D : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            transform.position = GetMousePos() + _offset;
+            Vector3 target = GetMousePos() + _offset;
+
+            Vector3 spriteHalfSize = _spriteRenderer.bounds.extents;
+            float depth = Mathf.Abs(Camera.main.transform.position.z - transform.position.z);
+            Vector3 bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, depth));
+            Vector3 topRight = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, depth));
+            float minX = bottomLeft.x + spriteHalfSize.x;
+            float maxX = topRight.x - spriteHalfSize.x;
+            float minY = bottomLeft.y + spriteHalfSize.y;
+            float maxY = topRight.y - spriteHalfSize.y;
+            target.x = Mathf.Clamp(target.x, minX, maxX);
+            target.y = Mathf.Clamp(target.y, minY, maxY);
+
+            transform.position = target;
         }
     }
 
