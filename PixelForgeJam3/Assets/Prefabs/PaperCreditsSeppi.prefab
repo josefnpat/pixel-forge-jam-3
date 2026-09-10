@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5535056160492224628, guid: bc08286807ea54a49b11f4f609a3b8c7, type: 3}
       propertyPath: m_text
-      value: Programming by\nSeppi
+      value: Programming + Guitar by Seppi
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
