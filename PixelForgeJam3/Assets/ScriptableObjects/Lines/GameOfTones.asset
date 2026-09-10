@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LineScriptableObjectScript
   Loop: 1
   Lines:
-  - AudioClip: {fileID: 8300000, guid: ad7f8275b86e24f94ad9a79b325de84e, type: 3}
+  - AudioClip: {fileID: 8300000, guid: a0b426d6f230c704188e7572b0a1a0fd, type: 3}
     English: 

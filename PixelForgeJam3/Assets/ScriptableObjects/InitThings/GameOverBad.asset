@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameOverBad
   m_EditorClassIdentifier: Assembly-CSharp::InitThingsScriptableObject
   InitThings:
-  - Prefab: {fileID: 157950016704980927, guid: 946bb38807827456d9a1a01f8ee0c7a1, type: 3}
+  - Prefab: {fileID: 128298483029125657, guid: c3f4c126be4db43dc9feff80cc6720b7, type: 3}
     Position: {x: 0, y: 0, z: 0}
   - Prefab: {fileID: 5071777290953640616, guid: d3920db6a37594cf8ad1d0377abec667, type: 3}
     Position: {x: -0.5, y: 0.5, z: 0}

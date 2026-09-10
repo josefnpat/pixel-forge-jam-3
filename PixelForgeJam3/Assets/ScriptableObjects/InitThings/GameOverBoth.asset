@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameOverBoth
   m_EditorClassIdentifier: Assembly-CSharp::InitThingsScriptableObject
   InitThings:
-  - Prefab: {fileID: 157950016704980927, guid: 946bb38807827456d9a1a01f8ee0c7a1, type: 3}
+  - Prefab: {fileID: 943040320904682322, guid: c3ffb9b0215444a9681d84787ee2b5cd, type: 3}
     Position: {x: 0, y: 0, z: 0}
   - Prefab: {fileID: 5071777290953640616, guid: d3920db6a37594cf8ad1d0377abec667, type: 3}
     Position: {x: -0.5, y: 0.5, z: 0}
@@ -21,3 +21,5 @@ MonoBehaviour:
     Position: {x: 0.5, y: 0.5, z: 0}
   - Prefab: {fileID: 9113249897976745566, guid: 3c54811287ced4c4aa8653c65d76327f, type: 3}
     Position: {x: 0, y: -0.5, z: 0}
+  - Prefab: {fileID: 3008961725861901931, guid: d95b3c84450e343d18c2e9d14c472584, type: 3}
+    Position: {x: 0, y: 0, z: 0}
