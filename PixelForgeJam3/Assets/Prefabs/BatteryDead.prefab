@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5536020271484863114}
   - component: {fileID: 4270098737213560691}
   - component: {fileID: 834616263803078207}
+  - component: {fileID: 3330104318056855879}
   m_Layer: 0
   m_Name: BatteryDead
   m_TagString: Untagged
@@ -291,3 +292,17 @@ MonoBehaviour:
   OnGrabEnd:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3330104318056855879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2570841088071525788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c453cc7d9a3b4a642880a87f1a7142fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OnSpawn
+  minSpawn: 1
+  maxSpawn: 2

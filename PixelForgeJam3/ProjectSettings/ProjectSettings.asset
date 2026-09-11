@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: MissingSentinelSoftware
   productName: Are You Free?
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: 3ccf8723fb1f8ae4baac45f6c83ba1e8, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.23137255, g: 0.23137255, b: 0.23137255, a: 1}
   m_ShowUnitySplashScreen: 1
